@@ -1,0 +1,214 @@
+// SCSS for the Nieuws Archief page (archive-nieuws-bericht.php)
+
+// --- Brand Color Palette ---
+$color1: #191919; // Near Black
+$color2: #2d4e4b; // Dark Teal
+$color3: #00425f; // Dark Blue
+$color4: #786b51; // Muted Brown
+$color5: #c7a92f; // Gold
+
+.archive-cpt {
+  padding-top: 110px;
+}
+
+// --- Modern Card Styling for nieuws-bericht items ---
+.card {
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+
+    .card-title {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      a {
+        text-decoration: none;
+        color: $color1; // Using brand black for titles
+
+        &:hover {
+          color: $color3; // Using brand blue for hover
+        }
+      }
+    }
+
+    .card-text {
+      color: black; // Using muted brown for the excerpt text
+      line-height: 1.6;
+      p {
+        color: black;
+      }
+    }
+    .archive-btn {
+      a {
+        background-color: #c7a92f;
+        color: white;
+        padding: 15px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all ease 0.3s;
+        margin-top: 10px;
+        &:hover {
+          background-color: #00425f;
+        }
+      }
+    }
+
+    // Style for the "Lees meer" button
+    .btn-primary {
+      background-color: $color2;
+      border-color: $color2;
+      font-weight: 500;
+
+      &:hover {
+        background-color: darken($color2, 5%);
+        border-color: darken($color2, 5%);
+      }
+    }
+  }
+}
+
+// --- Corrected Styling for WordPress pagination ---
+.pagination-container {
+  // The paginate_links() function creates a <ul> with the class .page-numbers
+  .page-numbers {
+    list-style: none; // This removes the bullets
+    padding-left: 0; // Removes default browser padding
+    display: flex;
+    justify-content: center;
+    gap: 8px; // Adds space between pagination items
+
+    // Target the list items
+    li {
+      // Target the links (a) and the current page number (span) inside the list items
+      a,
+      span {
+        display: block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        color: $color3;
+        border: 1px solid #dee2e6;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover {
+          background-color: #f8f9fa;
+          color: darken($color3, 10%);
+        }
+      }
+
+      // WordPress adds a .current class to the active page number's span
+      .current {
+        background-color: $color3;
+        color: #fff;
+        border-color: $color3;
+        z-index: 3;
+      }
+    }
+  }
+}
+// --- Styling for the standalone "Naar archief" button ---
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .btn-to-archive {
+    // Inherit the exact same styling as the card button for consistency
+    background-color: $color5;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all ease 0.3s;
+    display: inline-block;
+
+    &:hover {
+      background-color: $color3;
+    }
+  }
+}
+/* --- Owl Carousel Custom Styles --- */
+
+// Use the same color variables for consistency
+$color3: #00425f; // Dark Blue
+$color5: #c7a92f; // Gold
+
+.nieuws-slider {
+  .owl-stage-outer {
+    padding: 15px 0px;
+  }
+  .owl-nav {
+    // Style for the Prev/Next buttons
+    button.owl-prev,
+    button.owl-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff !important;
+      color: $color3 !important;
+      width: 45px;
+      height: 45px;
+      border-radius: 50% !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #00425f !important;
+        color: #fff !important;
+      }
+      // Style for the SVG icons inside the buttons
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+    }
+
+    button.owl-prev {
+      left: -20px;
+    }
+
+    button.owl-next {
+      right: -20px;
+    }
+  }
+
+  // Style for the pagination dots
+  .owl-dots {
+    margin-top: 30px !important;
+
+    .owl-dot {
+      span {
+        background: lighten($color3, 50%) !important;
+      }
+      &.active span {
+        background: $color5 !important;
+      }
+    }
+  }
+}
+
+// Media query to hide side arrows on smaller screens where they might overlap content
+@media (max-width: 767px) {
+  .nieuws-slider .owl-nav {
+    display: none;
+  }
+}

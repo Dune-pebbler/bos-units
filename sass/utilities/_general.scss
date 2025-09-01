@@ -1,0 +1,56 @@
+.fill {
+  width: 100%;
+  height: 100%;
+}
+.fill-width {
+  width: 100%;
+}
+.fill-height {
+  height: 100%;
+}
+.fluid-height {
+  max-width: 100%;
+  height: auto;
+}
+.fluid-width {
+  max-height: 100%;
+  width: auto;
+}
+.relative {
+  position: relative;
+}
+.text-center {
+  * {
+    text-align: center;
+  }
+}
+.no-padding {
+  padding: 0;
+}
+.no-margin {
+  margin: 0;
+}
+.half-page-left {
+  position: absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:50%;
+  @media (max-width: $screen-lg-max){
+    position: relative;
+    width:100%;
+    height:420px;
+  }
+}
+.half-page-right{
+  position: absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:50%;
+  @media (max-width: $screen-lg-max){
+    position: relative;
+    width:100%;
+    height:420px;
+  }
+}

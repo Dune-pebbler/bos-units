@@ -1,0 +1,39 @@
+// ----------------------- MAIN COLORS ----------------------- //
+
+$black: #000;
+$white: #fff;
+
+$color1: #191919;
+$color2: #2d4e4b;
+$color3: #00425f;
+$color4: #786b51;
+$color5: #c7a92f;
+
+$btn-color1: black;
+$btn-color2: blue;
+
+//these are set dynamic based on the contrast
+$btn-text-light: #fff;
+$btn-text-dark: #000;
+
+$font1: "Open Sans", serif;
+$font2: "Roboto", sans-serif;
+$font3: "Space Grotesk", serif;
+
+$shadow1: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+$header-height-mobile: 84px;
+
+// ----------------------- SIZES ----------------------- //
+
+$screen-xs-max: 576px;
+$screen-sm-max: 768px;
+$screen-md-max: 992px;
+$screen-lg-max: 1199px;
+$screen-xl-max: 1340px;
+$screen-xxl-max: 1400px;
+
+// ----------------------- BOOTSTRAP  ----------------------- //
+
+$max-container-width: 1408px;
+$gutter: 13.5px;

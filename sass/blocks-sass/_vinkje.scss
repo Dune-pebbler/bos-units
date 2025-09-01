@@ -1,0 +1,26 @@
+.vinkjes {
+  padding: 50px 0px;
+  color: black;
+}
+
+.vinkje-item {
+  margin: 20px 0px;
+  column-gap: 15px;
+  display: flex;
+  align-items: center; /* Ensure items are vertically aligned */
+}
+
+.vinkje-item img {
+  background-color: #786b51; /* Set the background color */
+  border-radius: 50%; /* Make the background circular */
+  padding: 10px; /* Add padding inside the circle */
+  width: 40px; /* Adjust width to include padding */
+  height: 40px; /* Match height with width for a perfect circle */
+  object-fit: contain; /* Ensure the image fits within the circle */
+}
+
+@media (max-width: 768px) {
+  .rechts {
+    display: none !important;
+  }
+}

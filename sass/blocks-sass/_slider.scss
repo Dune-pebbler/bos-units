@@ -1,0 +1,29 @@
+// Styling for the slider section
+.slider {
+  svg {
+    color: white;
+    height: 60% !important;
+  }
+  background-color: $color2;
+  .col-12 {
+    padding: 0;
+  }
+  .owl-carousel {
+    height: 700px;
+    position: relative;
+
+    @media (max-width: 1024px) {
+      height: 600px;
+    }
+    @media (max-width: 764px) {
+      height: 400px;
+    }
+    position: relative;
+    * {
+      height: 100%;
+    }
+  }
+  img {
+    object-fit: cover;
+  }
+}

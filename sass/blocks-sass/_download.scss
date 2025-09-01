@@ -1,0 +1,68 @@
+.downloads {
+  padding: 80px 0px;
+  color: black;
+  position: relative;
+  font-family: $font3;
+  text-transform: uppercase;
+
+  h2 {
+    color: black;
+  }
+}
+
+.download-item {
+  margin: 20px 0px;
+  column-gap: 15px;
+  display: flex;
+  @media (max-width: 768px) {
+    justify-content: left;
+  }
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
+}
+
+.download-item img {
+  background-color: #786b51; /* Set the background color */
+  border-radius: 100%; /* Make the background circular */
+  padding: 10px; /* Add padding inside the circle */
+  width: 40px; /* Adjust width to include padding */
+  height: 40px; /* Match height with width for a perfect circle */
+  object-fit: contain; /* Ensure the image fits within the circle */
+}
+
+@media screen and (max-width: 768px) {
+  #download {
+    position: relative;
+    z-index: 999;
+  }
+  .vinkjes {
+    position: relative;
+    z-index: 999;
+  }
+}
+@media screen and (min-width: 768px) {
+  #download {
+    .row {
+      > div:first-child {
+        position: relative;
+        z-index: 999;
+      }
+    }
+  }
+  .vinkjes {
+    .row {
+      > div:first-child {
+        position: relative;
+        z-index: 999;
+      }
+    }
+  }
+}

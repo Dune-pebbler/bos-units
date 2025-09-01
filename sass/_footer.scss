@@ -1,0 +1,134 @@
+.form-container {
+  background-color: $color3;
+  padding: 50px 50px;
+  position: relative;
+}
+.formbox {
+  background-color: $color3;
+  margin-top: 50px;
+  a {
+    color: $white;
+  }
+
+  .ginput_container {
+    background-color: $color3 !important;
+    color: $white !important;
+    font-size: 13px;
+  }
+
+  #input_1_3,
+  #input_1_1,
+  #input_1_4,
+  #input_1_5 {
+    background-color: $color3 !important;
+    color: $white !important;
+    border: none;
+    border-bottom: solid 1px $white;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: $white !important;
+  }
+  .gform_button {
+    font-size: 16px;
+    padding: 15px 30px;
+    background-color: $color4;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 100;
+    font-family: $font2;
+    color: $white;
+    border: none; /* Removes default button border */
+    cursor: pointer; /* Ensures the button has a pointer cursor */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+
+    &:hover {
+      background-color: darken($color4, 10%); /* Darken the background color */
+      transform: scale(1.05); /* Slightly enlarge the button */
+    }
+
+    &::after {
+      content: "→";
+      font-size: 16px;
+      margin-left: 10px;
+      display: inline-block; /* Required for animations */
+      transition: margin-left 0.3s ease; /* Smooth transition for the arrow */
+    }
+
+    &:hover::after {
+      margin-left: 15px; /* Moves the arrow to the right */
+    }
+
+    &:focus {
+      outline: none; /* Removes focus outline */
+      box-shadow: 0 0 5px rgba($color4, 0.5); /* Adds a subtle focus shadow */
+    }
+  }
+}
+.form-logo {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 7%;
+  transform: translate(-50%);
+}
+.basis-contact {
+  position: absolute;
+  right: 10%;
+  bottom: 0%;
+  width: 15%;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  a {
+    text-decoration: none;
+  }
+  p {
+    color: $black;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.gform_validation_errors {
+  display: none;
+}
+.bottom-footer {
+  p {
+    color: $black;
+  }
+  a {
+    color: $black;
+    text-decoration: none;
+  }
+  .footer_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bottom-footer {
+    .footer_links {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+  .basis-contact {
+    display: none;
+  }
+  .form-logo {
+    display: none;
+  }
+}
+.form-title {
+  p {
+    justify-content: center;
+    display: flex;
+  }
+}

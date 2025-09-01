@@ -1,0 +1,47 @@
+.btn,
+.btn-primary {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+
+  color: get-contrast-color($btn-color1);
+  @media (max-width: $screen-md-max) {
+    font-size: 18px;
+  }
+  &:hover {
+    color: get-contrast-color($btn-color1);
+  }
+  a {
+    color: get-contrast-color($btn-color1) !important;
+  }
+}
+.owl-button {
+  cursor: pointer;
+}
+
+.btn-secondary {
+  @extend .btn;
+  background-color: $btn-color2;
+  color: get-contrast-color($btn-color2);
+  &:hover {
+    background-color: darken($btn-color2, 10%);
+    color: get-contrast-color($btn-color2);
+  }
+}
+.btn-outline {
+  @extend .btn;
+  background-color: transparent;
+  border: 2px solid $btn-color1;
+  color: $btn-color1;
+  &:hover {
+    background-color: $btn-color1;
+    color: get-contrast-color($btn-color1);
+  }
+}

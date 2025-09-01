@@ -1,0 +1,54 @@
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.container {
+  @media (min-width: $screen-xxl-max) {
+    max-width: calc($max-container-width + (2 * $gutter)) !important;
+  }
+}
+.container-fluid-left{
+  //widths from bootstrap, copied from bootstrap.css
+
+  // @media (min-width: 576px) {
+  //   @include fluid-container-left(540px, 100px);
+  // }
+  // @media (min-width: 768px) {
+  //   @include fluid-container-left(720px, 100px);
+  // }
+  @media (min-width: 992px) {
+    @include fluid-container-left(960px, 0px)
+  }
+  @media (min-width: 1200px) {
+    @include fluid-container-left(1140px, 0px)
+  }
+  @media (min-width: 1400px) {
+    @include fluid-container-left(1320px, 0px)
+  }
+  @media (min-width:1500px) {
+    @include fluid-container-left(calc($max-container-width + (2 * $gutter)), 0px)
+  }
+}
+.container-fluid-left-100 {
+  //widths from bootstrap, copied from bootstrap.css
+
+  // @media (min-width: 576px) {
+  //   @include fluid-container-left(540px, 100px);
+  // }
+  @media (min-width: 768px) {
+    @include fluid-container-left(720px, 100px);
+  } 
+  @media (min-width: 992px) {
+    @include fluid-container-left(960px, 100px)
+  }
+  @media (min-width: 1200px) {
+    @include fluid-container-left(1140px, 100px)
+  }
+  @media (min-width: 1400px) {
+    @include fluid-container-left(1320px, 100px)
+  }
+  @media (min-width:1500px) {
+    @include fluid-container-left(calc($max-container-width + (2 * $gutter)), 100px)
+  }
+}

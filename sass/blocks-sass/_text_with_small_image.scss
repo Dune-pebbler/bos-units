@@ -1,0 +1,30 @@
+.text-with-small-image {
+  padding: 70px 0px;
+  .image-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column-reverse;
+      .image-container {
+        display: flex;
+        align-items: center;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .col-12 {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

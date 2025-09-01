@@ -1,0 +1,27 @@
+@import "variables";
+@import "mixins";
+@import "utilities";
+@import "base";
+@import "form";
+@import "archive";
+@import "single-cpt";
+
+//blocks
+@import "blocks-sass/hero_banner";
+@import "blocks-sass/text_block";
+@import "blocks-sass/text_block_svg";
+@import "blocks-sass/vinkje";
+@import "blocks-sass/slider";
+@import "blocks-sass/download";
+@import "blocks-sass/3-images";
+@import "blocks-sass/images-repeater";
+@import "blocks-sass/text_with_image";
+@import "blocks-sass/text_with_small_image";
+@import "blocks-sass/cards";
+@import "blocks-sass/inspiration";
+
+@import "animations";
+@import "header";
+@import "main";
+@import "footer";
+@import "404";

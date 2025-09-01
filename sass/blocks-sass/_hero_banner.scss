@@ -1,0 +1,134 @@
+.hero {
+  overflow-x: hidden;
+  position: relative;
+
+  .offset-img {
+    position: absolute;
+    top: 25%;
+    right: -12.5%;
+    z-index: 1;
+    width: 25%;
+  }
+
+  .hero-banner {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    &::before {
+      height: 300px;
+      top: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    &::after {
+      height: 400px;
+      bottom: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: bottom;
+      display: block;
+
+      @media only screen and (max-width: 480px) {
+        height: 700px;
+      }
+    }
+  }
+
+  .hero__banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(116, 102, 97, 0);
+    color: #fff;
+  }
+
+  .hero__overlay-text {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    max-width: 900px;
+    z-index: 15; // Increased z-index to appear above gradients
+    font-size: 3em; /* Adjust as needed */
+    font-weight: bold; /* Optional */
+    @media only screen and (max-width: 768px) {
+      top: 70%;
+    }
+    @media only screen and (max-width: 480px) {
+      top: 50%;
+    }
+  }
+  .sales-banner {
+    position: absolute;
+    top: 75%;
+    left: 5%;
+    @media only screen and (max-width: 768px) {
+      top: 50%;
+    }
+    @media only screen and (max-width: 480px) {
+      top: 80%;
+      left: 20%;
+      img {
+        width: 70% !important;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .button-container {
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    z-index: 15;
+    display: none;
+    @media only screen and (max-width: 768px) {
+      display: block;
+    }
+    @media only screen and (max-width: 480px) {
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%);
+      a::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .offset-img {
+    display: none;
+  }
+}

@@ -1,0 +1,147 @@
+html {
+  overflow-x: hidden;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: $font1;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color4;
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color1;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 100;
+  font-family: $font2;
+  line-height: 1.2;
+  @media (max-width: $screen-lg-max) {
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
+  @media (max-width: $screen-md-max) {
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: $screen-sm-max) {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+h1 {
+  font-size: 32px;
+  color: black;
+  margin-top: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  @media (max-width: $screen-lg-max) {
+    font-size: 28px;
+  }
+  @media (max-width: $screen-md-max) {
+    font-size: 24px;
+  }
+  @media (max-width: $screen-sm-max) {
+    font-size: 20px;
+  }
+}
+h2 {
+  font-size: clamp(20px, 4vw + 1rem, 54px);
+  color: $white;
+  font-family: $font3;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 24px;
+  color: $color2;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+ul {
+  padding-left: 20px;
+  list-style: disc;
+  li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: $color4;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+p {
+  font-family: $font1;
+  font-size: clamp(16px, 3vw + 0.5rem, 16px);
+  font-weight: 300;
+  line-height: clamp(22px, 4vw + 0.5rem, 29px);
+  color: $white;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 50px;
+  margin: 10px 0px;
+
+  a {
+    font-size: 16px;
+    padding: 15px 30px;
+    background-color: $color4;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 100;
+    font-family: $font2;
+    color: $white;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+
+    &:hover {
+      background-color: darken($color4, 10%); /* Darken the background color */
+      transform: scale(1.05); /* Slightly enlarge the button */
+    }
+
+    &::after {
+      content: "→";
+      font-size: 16px;
+      margin-left: 10px;
+      display: inline-block; /* Required for animations */
+      transition: margin-left 0.3s ease; /* Smooth transition for the arrow */
+    }
+
+    &:hover::after {
+      margin-left: 15px; /* Moves the arrow to the right */
+    }
+  }
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}

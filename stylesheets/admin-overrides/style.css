@@ -1,0 +1,17 @@
+body {
+    background-color: #fff;
+}
+table {
+    border:1px solid transparent!important;
+}
+.page-title-action{
+    background-color: #2271b1!important;
+    margin-left: 16px!important;
+    color:white!important;
+}
+.media-toolbar {
+    border: 1px solid transparent!important
+}
+#wp-content-editor-tools {
+    background-color: #fff!important;
+}
