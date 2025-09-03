@@ -26,9 +26,9 @@ $color5: #c7a92f; // Gold
 
   .card-img-top {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 300px;
     object-fit: cover;
+    display: flex;
   }
 
   .card-body {
@@ -210,5 +210,15 @@ $color5: #c7a92f; // Gold
 @media (max-width: 767px) {
   .nieuws-slider .owl-nav {
     display: none;
+  }
+}
+.latest-news-section {
+  .title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h2 {
+      color: black !important;
+    }
   }
 }

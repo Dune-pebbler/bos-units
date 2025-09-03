@@ -18,7 +18,11 @@ $latest_nieuws_query = new WP_Query($args);
 ?>
 
 <section class="latest-news-section py-5">
+
     <div class="container">
+        <div class="title-container">
+            <h2>Nieuwsberichten</h2>
+        </div>
         <?php if ($latest_nieuws_query->have_posts()): ?>
             <!-- Owl Carousel Container -->
             <div class="owl-carousel owl-theme nieuws-slider">
@@ -98,7 +102,7 @@ $latest_nieuws_query = new WP_Query($args);
     jQuery(document).ready(function ($) {
         $('.nieuws-slider').owlCarousel({
             items: 3,
-            loop: true,
+            loop: false,
             margin: 30,
             nav: false,
             dots: true,
