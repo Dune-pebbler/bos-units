@@ -754,6 +754,13 @@ p {
   background: #c7a92f !important;
 }
 
+.owl-carousel .owl-item img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @media (max-width: 767px) {
   .nieuws-slider .owl-nav {
     display: none;

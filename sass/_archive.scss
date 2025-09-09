@@ -205,6 +205,11 @@ $color5: #c7a92f; // Gold
     }
   }
 }
+.owl-carousel .owl-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
 // Media query to hide side arrows on smaller screens where they might overlap content
 @media (max-width: 767px) {
