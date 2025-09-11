@@ -618,6 +618,12 @@ p {
      object-fit: cover;
   display: flex;
 }
+.card .card-img-top img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .card .card-body {
   padding: 1.5rem;
 }
@@ -700,7 +706,7 @@ p {
 .btn-container .btn-to-archive {
   background-color: #c7a92f;
   color: white;
-  padding: 15px 20px;
+  padding: 10px 20px;
   text-decoration: none;
   border-radius: 25px;
   transition: all ease 0.3s;

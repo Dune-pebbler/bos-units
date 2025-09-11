@@ -29,6 +29,11 @@ $color5: #c7a92f; // Gold
     height: 300px;
     object-fit: cover;
     display: flex;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   .card-body {
@@ -134,7 +139,7 @@ $color5: #c7a92f; // Gold
     // Inherit the exact same styling as the card button for consistency
     background-color: $color5;
     color: white;
-    padding: 15px 20px;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 25px;
     transition: all ease 0.3s;
