@@ -63,18 +63,3 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
         </div>
     </div>
 </section>
-
-<style>
-    .map-embed-container {
-        width: 100%;
-        height: 100%;
-        min-height: 400px;
-    }
-
-    .map-embed-container iframe {
-        width: 100%;
-        height: 100%;
-        min-height: 400px;
-        border: none;
-    }
-</style>

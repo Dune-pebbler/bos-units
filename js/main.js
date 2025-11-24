@@ -6,6 +6,7 @@ var mainHeader = jQuery("header"); // Adjust selector if necessary
 // Document Ready
 jQuery(document).ready(function () {
   startOwlSlider(); // Ensure the Owl Carousel initializes on load
+  initPartnersSlider(); // Initialize partners slider
   setHamburgerActiveToggle();
   postcodeAutofill();
   setOnBtnAjaxFilter();
@@ -62,6 +63,48 @@ function startOwlSlider() {
         },
         1000: {
           stagePadding: 200,
+          margin: 30,
+        },
+      },
+    });
+  }
+}
+
+/**
+ * Initializes the Partners Owl Carousel slider
+ */
+function initPartnersSlider() {
+  if (jQuery(".partners-slider").length) {
+    jQuery(".partners-slider").owlCarousel({
+      items: 3,
+      loop: false,
+      margin: 30,
+      nav: false,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      navText: [
+        '<svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>',
+        '<svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>',
+      ],
+      responsive: {
+        0: {
+          items: 1,
+          nav: false,
+          dots: false,
+          margin: 15,
+        },
+        768: {
+          items: 2,
+          nav: false,
+          dots: false,
+          margin: 20,
+        },
+        1024: {
+          items: 3,
+          nav: false,
+          dots: false,
           margin: 30,
         },
       },
