@@ -23,31 +23,35 @@ $footer_links = get_field('footer_links', 'option');
                                 alt="<?php echo esc_attr($footer_logo['alt']); ?>">
                         <?php endif; ?>
 
-                        <div class="basis-contact">
-                            <?php
-                            $contact_url = get_field('contact_url', 'option');
-                            $contact_logo = get_field('contact_logo', 'option');
-                            $contact_phone = get_field('contact_phone', 'option');
-                            $contact_email = get_field('contact_email', 'option');
-
-                            if ($contact_url): ?>
-                                <a href="<?php echo esc_url($contact_url); ?>">
-                                    <?php if ($contact_logo): ?>
-                                        <img class="basis-logo"
-                                            src="<?php echo esc_url($contact_logo['url']); ?>"
-                                            alt="<?php echo esc_attr($contact_logo['alt']); ?>">
+                        <?php if (have_rows('contact_companies', 'option')): ?>
+                            <?php while (have_rows('contact_companies', 'option')):
+                                the_row();
+                                $contact_url = get_sub_field('contact_url');
+                                $contact_logo = get_sub_field('contact_logo');
+                                $contact_phone = get_sub_field('contact_phone');
+                                $contact_email = get_sub_field('contact_email');
+                                ?>
+                                <div class="basis-contact">
+                                    <?php if ($contact_url): ?>
+                                        <a href="<?php echo esc_url($contact_url); ?>">
+                                            <?php if ($contact_logo): ?>
+                                                <img class="basis-logo"
+                                                    src="<?php echo esc_url($contact_logo['url']); ?>"
+                                                    alt="<?php echo esc_attr($contact_logo['alt']); ?>">
+                                            <?php endif; ?>
+                                            <p>
+                                                <?php if ($contact_phone): ?>
+                                                    <?php echo esc_html($contact_phone); ?><br>
+                                                <?php endif; ?>
+                                                <?php if ($contact_email): ?>
+                                                    <?php echo esc_html($contact_email); ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        </a>
                                     <?php endif; ?>
-                                    <p>
-                                        <?php if ($contact_phone): ?>
-                                            <?php echo esc_html($contact_phone); ?><br>
-                                        <?php endif; ?>
-                                        <?php if ($contact_email): ?>
-                                            <?php echo esc_html($contact_email); ?>
-                                        <?php endif; ?>
-                                    </p>
-                                </a>
-                            <?php endif; ?>
-                        </div>
+                                </div>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
