@@ -69,24 +69,37 @@ $latest_partners_query = new WP_Query($args);
         position: relative;
         padding: 0 40px;
         /* Add padding for navigation buttons */
+        display: flex !important;
     }
 
     /* Ensure cards use existing styling from SCSS */
+    .partners-slider .owl-stage {
+        display: flex !important;
+    }
+
+    .partners-slider .owl-item {
+        display: flex !important;
+        height: auto;
+    }
+
     .partners-slider .item {
         padding: 0 15px;
-        display: flex;
-        height: auto;
+        display: flex !important;
+        height: 100%;
     }
 
     /* Make all cards the same height using flexbox */
     .partners-slider .item .card {
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
         flex-grow: 1;
         width: 100%;
+        height: 100%;
     }
 
     .partners-slider .item .card .card-body {
+        display: flex !important;
+        flex-direction: column !important;
         flex-grow: 1;
     }
 
