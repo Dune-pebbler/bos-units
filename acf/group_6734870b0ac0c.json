@@ -196,10 +196,10 @@
                         },
                         {
                             "key": "field_6734bf418e0f3",
-                            "label": "afbeelding blok",
-                            "name": "text_image_img",
+                            "label": "Google Maps Locatie",
+                            "name": "text_image_map",
                             "aria-label": "",
-                            "type": "image",
+                            "type": "google_map",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -208,17 +208,11 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "allow_in_bindings": 0,
-                            "preview_size": "medium"
+                            "center_lat": "52.1601144",
+                            "center_lng": "4.4970097",
+                            "zoom": 14,
+                            "height": 400,
+                            "allow_in_bindings": 0
                         },
                         {
                             "key": "field_6762d69d746f8",
@@ -1233,5 +1227,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737736000
+    "modified": 1737738000
 }

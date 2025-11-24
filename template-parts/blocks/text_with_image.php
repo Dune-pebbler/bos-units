@@ -5,7 +5,7 @@ $reverse_layout = get_sub_field('reverse_layout');
 $text_color = esc_attr(get_sub_field('text_color'));
 $text_image_txt = get_sub_field('text_image_txt');
 $button_group = get_sub_field('text_image_group');
-$text_image_img = get_sub_field('text_image_img');
+$text_image_map = get_sub_field('text_image_map');
 $text_image_btn = get_sub_field('text_image_btn'); // Assuming this is an array with 'url' and 'title'
 $text_image_btn_link = $text_image_btn['url'] ?? '';
 $text_image_btn_title = $text_image_btn['title'] ?? '';
@@ -44,12 +44,14 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
                 </div>
             </div>
             <div class="col-lg-1 col-sm-2"></div>
-            <!-- Image Section -->
+            <!-- Map Section -->
             <div class="col-lg-6 col-sm-12 map" style="padding: 0px;">
-                <?php if ($text_image_img): ?>
-                    <div class="text_image__container">
-                        <img src="<?php echo esc_url($text_image_img['url']); ?>"
-                            alt="<?php echo esc_attr($text_image_img['alt']); ?>" />
+                <?php if ($text_image_map): ?>
+                    <div class="acf-map" data-zoom="<?php echo esc_attr($text_image_map['zoom']); ?>">
+                        <div class="marker" data-lat="<?php echo esc_attr($text_image_map['lat']); ?>"
+                            data-lng="<?php echo esc_attr($text_image_map['lng']); ?>">
+                            <h4><?php echo esc_html($text_image_map['address']); ?></h4>
+                        </div>
                     </div>
                 <?php endif; ?>
 
@@ -64,3 +66,117 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
         </div>
     </div>
 </section>
+
+<style>
+    .acf-map {
+        width: 100%;
+        height: 400px;
+        border: none;
+    }
+
+    /* Fixes potential theme CSS conflict */
+    .acf-map img {
+        max-width: inherit !important;
+    }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_js(acf_get_setting('google_api_key')); ?>"></script>
+<script type="text/javascript">
+    (function($) {
+        /**
+         * initMap
+         * Renders a Google Map onto the selected jQuery element
+         */
+        function initMap($el) {
+            // Find marker elements within map.
+            var $markers = $el.find('.marker');
+
+            // Create generic map.
+            var mapArgs = {
+                zoom: $el.data('zoom') || 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map($el[0], mapArgs);
+
+            // Add markers.
+            map.markers = [];
+            $markers.each(function() {
+                initMarker($(this), map);
+            });
+
+            // Center map based on markers.
+            centerMap(map);
+
+            // Return map instance.
+            return map;
+        }
+
+        /**
+         * initMarker
+         * Creates a marker for the given jQuery element and map.
+         */
+        function initMarker($marker, map) {
+            // Get position from marker.
+            var lat = $marker.data('lat');
+            var lng = $marker.data('lng');
+            var latLng = {
+                lat: parseFloat(lat),
+                lng: parseFloat(lng)
+            };
+
+            // Create marker instance.
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map
+            });
+
+            // Append to reference for later use.
+            map.markers.push(marker);
+
+            // If marker contains HTML, add it to an infoWindow.
+            if ($marker.html()) {
+                // Create info window.
+                var infowindow = new google.maps.InfoWindow({
+                    content: $marker.html()
+                });
+
+                // Show info window when marker is clicked.
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+        }
+
+        /**
+         * centerMap
+         * Centers the map showing all markers in view.
+         */
+        function centerMap(map) {
+            // Create map boundaries from all map markers.
+            var bounds = new google.maps.LatLngBounds();
+            map.markers.forEach(function(marker) {
+                bounds.extend({
+                    lat: marker.position.lat(),
+                    lng: marker.position.lng()
+                });
+            });
+
+            // Case: Single marker.
+            if (map.markers.length == 1) {
+                map.setCenter(bounds.getCenter());
+            }
+            // Case: Multiple markers.
+            else {
+                map.fitBounds(bounds);
+            }
+        }
+
+        // Render maps on page load.
+        $(document).ready(function() {
+            $('.acf-map').each(function() {
+                var map = initMap($(this));
+            });
+        });
+
+    })(jQuery);
+</script>
