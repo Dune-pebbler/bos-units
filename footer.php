@@ -16,16 +16,37 @@ $footer_links = get_field('footer_links', 'option');
                         <div class="formbox" id="form">
                             <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
                         </div>
-                        <img class="form-logo" src="<?php echo get_template_directory_uri(); ?>/images/wit_logo.png"
-                            alt="Wit logo">
+                        <?php
+                        $footer_logo = get_field('footer_logo', 'option');
+                        if ($footer_logo): ?>
+                            <img class="form-logo" src="<?php echo esc_url($footer_logo['url']); ?>"
+                                alt="<?php echo esc_attr($footer_logo['alt']); ?>">
+                        <?php endif; ?>
+
                         <div class="basis-contact">
-                            <a href="https://basis.nl/">
-                                <img class="basis-logo"
-                                    src="<?php echo get_template_directory_uri(); ?>/images/basis.png"
-                                    alt="logo van basis">
-                                <p>(071) 5 233 277<br>
-                                    leiden@basis.nl</p>
-                            </a>
+                            <?php
+                            $contact_url = get_field('contact_url', 'option');
+                            $contact_logo = get_field('contact_logo', 'option');
+                            $contact_phone = get_field('contact_phone', 'option');
+                            $contact_email = get_field('contact_email', 'option');
+
+                            if ($contact_url): ?>
+                                <a href="<?php echo esc_url($contact_url); ?>">
+                                    <?php if ($contact_logo): ?>
+                                        <img class="basis-logo"
+                                            src="<?php echo esc_url($contact_logo['url']); ?>"
+                                            alt="<?php echo esc_attr($contact_logo['alt']); ?>">
+                                    <?php endif; ?>
+                                    <p>
+                                        <?php if ($contact_phone): ?>
+                                            <?php echo esc_html($contact_phone); ?><br>
+                                        <?php endif; ?>
+                                        <?php if ($contact_email): ?>
+                                            <?php echo esc_html($contact_email); ?>
+                                        <?php endif; ?>
+                                    </p>
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
