@@ -17,45 +17,49 @@ $footer_links = get_field('footer_links', 'option');
                             <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
                         </div>
 
-                        <div class="footer-contact-section">
-                            <?php
-                            $footer_logo = get_field('footer_logo', 'option');
-                            if ($footer_logo): ?>
-                                <img class="form-logo" src="<?php echo esc_url($footer_logo['url']); ?>"
-                                    alt="<?php echo esc_attr($footer_logo['alt']); ?>">
-                            <?php endif; ?>
 
-                            <div class="contact-companies-row">
-                                <?php if (have_rows('contact_companies', 'option')): ?>
-                                    <?php while (have_rows('contact_companies', 'option')):
-                                        the_row();
-                                        $contact_url = get_sub_field('contact_url');
-                                        $contact_logo = get_sub_field('contact_logo');
-                                        $contact_phone = get_sub_field('contact_phone');
-                                        $contact_email = get_sub_field('contact_email');
-                                        ?>
-                                        <div class="basis-contact">
-                                            <?php if ($contact_url): ?>
-                                                <a href="<?php echo esc_url($contact_url); ?>">
-                                                    <?php if ($contact_logo): ?>
-                                                        <img class="basis-logo"
-                                                            src="<?php echo esc_url($contact_logo['url']); ?>"
-                                                            alt="<?php echo esc_attr($contact_logo['alt']); ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-contact-section">
+                        <?php
+                        $footer_logo = get_field('footer_logo', 'option');
+                        if ($footer_logo): ?>
+                            <img class="form-logo" src="<?php echo esc_url($footer_logo['url']); ?>"
+                                alt="<?php echo esc_attr($footer_logo['alt']); ?>">
+                        <?php endif; ?>
+
+                        <div class="contact-companies-row">
+                            <?php if (have_rows('contact_companies', 'option')): ?>
+                                <?php while (have_rows('contact_companies', 'option')):
+                                    the_row();
+                                    $contact_url = get_sub_field('contact_url');
+                                    $contact_logo = get_sub_field('contact_logo');
+                                    $contact_phone = get_sub_field('contact_phone');
+                                    $contact_email = get_sub_field('contact_email');
+                                    ?>
+                                    <div class="basis-contact">
+                                        <?php if ($contact_url): ?>
+                                            <a href="<?php echo esc_url($contact_url); ?>">
+                                                <?php if ($contact_logo): ?>
+                                                    <img class="basis-logo" src="<?php echo esc_url($contact_logo['url']); ?>"
+                                                        alt="<?php echo esc_attr($contact_logo['alt']); ?>">
+                                                <?php endif; ?>
+                                                <p>
+                                                    <?php if ($contact_phone): ?>
+                                                        <?php echo esc_html($contact_phone); ?><br>
                                                     <?php endif; ?>
-                                                    <p>
-                                                        <?php if ($contact_phone): ?>
-                                                            <?php echo esc_html($contact_phone); ?><br>
-                                                        <?php endif; ?>
-                                                        <?php if ($contact_email): ?>
-                                                            <?php echo esc_html($contact_email); ?>
-                                                        <?php endif; ?>
-                                                    </p>
-                                                </a>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
-                            </div>
+                                                    <?php if ($contact_email): ?>
+                                                        <?php echo esc_html($contact_email); ?>
+                                                    <?php endif; ?>
+                                                </p>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
