@@ -1203,10 +1203,8 @@ p {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1024px) {
-  .text-with-image {
-    padding-top: 70px;
-  }
+.text-with-image {
+  padding: 70px 0px;
 }
 .text-with-image .text_image {
   text-align: left;
