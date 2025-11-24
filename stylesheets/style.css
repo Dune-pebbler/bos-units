@@ -1696,10 +1696,6 @@ header.active .mobile-menu-overlay .mobile-menu-content {
 .basis-contact p {
   color: #000;
 }
-.basis-contact img {
-  width: 100%;
-  height: 61px;
-}
 
 .gform_validation_errors {
   display: none;
