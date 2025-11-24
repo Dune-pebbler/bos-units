@@ -24,6 +24,27 @@
             "delay": 0
         },
         {
+            "key": "field_67930c50c4a18",
+            "label": "Contact Section Title",
+            "name": "contact_section_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Titel boven de contact sectie",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_679309f1c4a12",
             "label": "Footer Logo",
             "name": "footer_logo",
@@ -178,5 +199,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737737500
+    "modified": 1737739000
 }

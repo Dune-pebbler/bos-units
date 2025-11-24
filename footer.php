@@ -25,6 +25,12 @@ $footer_links = get_field('footer_links', 'option');
                 <div class="col-12">
                     <div class="footer-contact-section">
                         <?php
+                        $contact_section_title = get_field('contact_section_title', 'option');
+                        if ($contact_section_title): ?>
+                            <h2 class="contact-section-title"><?php echo esc_html($contact_section_title); ?></h2>
+                        <?php endif; ?>
+
+                        <?php
                         $footer_logo = get_field('footer_logo', 'option');
                         if ($footer_logo): ?>
                             <img class="form-logo" src="<?php echo esc_url($footer_logo['url']); ?>"
