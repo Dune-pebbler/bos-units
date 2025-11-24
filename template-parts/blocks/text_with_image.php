@@ -45,7 +45,7 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
             </div>
             <div class="col-lg-1 col-sm-2"></div>
             <!-- Map Section -->
-            <div class="col-lg-6 col-sm-12 map" style="padding: 0px;">
+            <div class="col-lg-6 col-sm-12 map" style="padding: 20px;">
                 <?php if ($text_image_map): ?>
                     <div class="map-embed-container">
                         <?php echo $text_image_map; ?>
