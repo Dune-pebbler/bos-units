@@ -1,9 +1,7 @@
 <?php
 /**
  * Template Part for displaying the three most recent "partner" posts
- * as an Owl Carousel slider on a homepage or other section.
- *
- * This template uses Owl Carousel 2 for the slider functionality.
+ * as static cards in a row.
  */
 
 // Get the section title from ACF
@@ -27,12 +25,12 @@ $latest_partners_query = new WP_Query($args);
             <h2><?php echo esc_html($section_title); ?></h2>
         </div>
         <?php if ($latest_partners_query->have_posts()): ?>
-            <!-- Owl Carousel Container -->
-            <div class="owl-carousel owl-theme partners-slider">
+            <!-- Partners Grid Container -->
+            <div class="partners-grid">
                 <?php while ($latest_partners_query->have_posts()):
                     $latest_partners_query->the_post(); ?>
 
-                    <div class="item">
+                    <div class="partner-item">
                         <article id="post-<?php the_ID(); ?>" <?php post_class('card h-100'); ?>>
                             <?php if (has_post_thumbnail()): ?>
                                 <a href="<?php the_permalink(); ?>">

@@ -6,7 +6,6 @@ var mainHeader = jQuery("header"); // Adjust selector if necessary
 // Document Ready
 jQuery(document).ready(function () {
   startOwlSlider(); // Ensure the Owl Carousel initializes on load
-  initPartnersSlider(); // Initialize partners slider
   setHamburgerActiveToggle();
   postcodeAutofill();
   setOnBtnAjaxFilter();
@@ -67,40 +66,6 @@ function startOwlSlider() {
         },
       },
     });
-  }
-}
-
-/**
- * Initializes the Partners Owl Carousel slider (only on mobile/tablet)
- */
-function initPartnersSlider() {
-  if (jQuery(".partners-slider").length) {
-    // Only initialize carousel on mobile and tablet, not desktop
-    if (jQuery(window).width() < 1024) {
-      jQuery(".partners-slider").owlCarousel({
-        items: 1,
-        loop: false,
-        margin: 20,
-        nav: false,
-        dots: true,
-        autoplay: false,
-        center: false,
-        responsive: {
-          0: {
-            items: 1,
-            nav: false,
-            dots: true,
-            margin: 15,
-          },
-          768: {
-            items: 2,
-            nav: false,
-            dots: true,
-            margin: 20,
-          },
-        },
-      });
-    }
   }
 }
 

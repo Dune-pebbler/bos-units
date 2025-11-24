@@ -1,74 +1,39 @@
 // Partners Snippet Block Styles
 
-/* Desktop: Display as 3 cards in a row (no carousel) */
-@media (min-width: 1024px) {
-  .partners-slider {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 0;
-  }
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0;
 
-  .partners-slider .item {
-    display: flex !important;
+  .partner-item {
+    display: flex;
     height: 100%;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+      height: 100%;
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+    }
   }
 
-  .partners-slider .item .card {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1;
-    width: 100%;
-    height: 100%;
+  // Responsive: 2 columns on tablet
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
-  .partners-slider .item .card .card-body {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1;
-  }
-}
-
-/* Mobile/Tablet: Carousel behavior */
-@media (max-width: 1023px) {
-  .partners-slider {
-    position: relative;
-    padding: 0 40px;
-    display: flex !important;
-  }
-
-  .partners-slider .owl-stage {
-    display: flex !important;
-  }
-
-  .partners-slider .owl-item {
-    display: flex !important;
-    height: auto;
-  }
-
-  .partners-slider .item {
-    padding: 0 15px;
-    display: flex !important;
-    height: 100%;
-  }
-
-  .partners-slider .item .card {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1;
-    width: 100%;
-    height: 100%;
-  }
-
-  .partners-slider .item .card .card-body {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1;
-  }
-}
-
-@media (max-width: 767px) {
-  .partners-slider {
-    padding: 0;
+  // Responsive: 1 column on mobile
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 }
