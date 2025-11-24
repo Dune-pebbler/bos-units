@@ -1177,6 +1177,37 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_679308a1b4e21": {
+                    "key": "layout_679308a1b4e21",
+                    "name": "partners_snippet",
+                    "label": "Partners",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_679308b7b4e23",
+                            "label": "Partners Titel",
+                            "name": "partners_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Partners",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -1202,5 +1233,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737648867
+    "modified": 1737736000
 }

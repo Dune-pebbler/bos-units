@@ -62,6 +62,10 @@
             <?php get_template_part('template-parts/blocks/news-snippet'); ?>
         <?php endif; ?>
 
+        <?php if (get_row_layout() === 'partners_snippet'): ?>
+            <?php get_template_part('template-parts/blocks/partners-snippet'); ?>
+        <?php endif; ?>
+
     <?php endwhile; ?>
 <?php endif; ?>
 
