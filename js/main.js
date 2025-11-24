@@ -71,44 +71,36 @@ function startOwlSlider() {
 }
 
 /**
- * Initializes the Partners Owl Carousel slider
+ * Initializes the Partners Owl Carousel slider (only on mobile/tablet)
  */
 function initPartnersSlider() {
   if (jQuery(".partners-slider").length) {
-    jQuery(".partners-slider").owlCarousel({
-      items: 3,
-      loop: false,
-      margin: 30,
-      nav: false,
-      dots: false,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      autoplayHoverPause: true,
-      navText: [
-        '<svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>',
-        '<svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>',
-      ],
-      responsive: {
-        0: {
-          items: 1,
-          nav: false,
-          dots: false,
-          margin: 15,
+    // Only initialize carousel on mobile and tablet, not desktop
+    if (jQuery(window).width() < 1024) {
+      jQuery(".partners-slider").owlCarousel({
+        items: 1,
+        loop: false,
+        margin: 20,
+        nav: false,
+        dots: true,
+        autoplay: false,
+        center: false,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false,
+            dots: true,
+            margin: 15,
+          },
+          768: {
+            items: 2,
+            nav: false,
+            dots: true,
+            margin: 20,
+          },
         },
-        768: {
-          items: 2,
-          nav: false,
-          dots: false,
-          margin: 20,
-        },
-        1024: {
-          items: 3,
-          nav: false,
-          dots: false,
-          margin: 30,
-        },
-      },
-    });
+      });
+    }
   }
 }
 
