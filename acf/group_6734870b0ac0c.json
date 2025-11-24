@@ -196,11 +196,11 @@
                         },
                         {
                             "key": "field_6734bf418e0f3",
-                            "label": "Google Maps Locatie",
+                            "label": "Map Embed (iframe)",
                             "name": "text_image_map",
                             "aria-label": "",
-                            "type": "google_map",
-                            "instructions": "",
+                            "type": "wysiwyg",
+                            "instructions": "Plak hier de iframe embed code van Google Maps of een andere kaart service",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -208,11 +208,12 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "center_lat": "52.1601144",
-                            "center_lng": "4.4970097",
-                            "zoom": 14,
-                            "height": 400,
-                            "allow_in_bindings": 0
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
+                            "delay": 0
                         },
                         {
                             "key": "field_6762d69d746f8",
@@ -1227,5 +1228,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737738000
+    "modified": 1737738500
 }
