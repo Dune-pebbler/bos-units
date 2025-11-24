@@ -74,6 +74,20 @@ $latest_partners_query = new WP_Query($args);
     /* Ensure cards use existing styling from SCSS */
     .partners-slider .item {
         padding: 0 15px;
+        display: flex;
+        height: auto;
+    }
+
+    /* Make all cards the same height using flexbox */
+    .partners-slider .item .card {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .partners-slider .item .card .card-body {
+        flex-grow: 1;
     }
 
     /* Remove margin on smaller screens where nav is hidden */
