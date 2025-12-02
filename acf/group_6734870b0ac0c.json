@@ -196,11 +196,11 @@
                         },
                         {
                             "key": "field_6734bf418e0f3",
-                            "label": "Map Embed (iframe)",
+                            "label": "afbeelding blok",
                             "name": "text_image_map",
                             "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "Plak hier de iframe embed code van Google Maps of een andere kaart service",
+                            "type": "image",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -208,12 +208,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
                             "allow_in_bindings": 0,
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 0,
-                            "delay": 0
+                            "preview_size": "medium"
                         },
                         {
                             "key": "field_6762d69d746f8",

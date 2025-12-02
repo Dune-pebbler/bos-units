@@ -5,7 +5,7 @@ $reverse_layout = get_sub_field('reverse_layout');
 $text_color = esc_attr(get_sub_field('text_color'));
 $text_image_txt = get_sub_field('text_image_txt');
 $button_group = get_sub_field('text_image_group');
-$text_image_map = get_sub_field('text_image_map');
+$text_image_img = get_sub_field('text_image_map'); // Image field
 $text_image_btn = get_sub_field('text_image_btn'); // Assuming this is an array with 'url' and 'title'
 $text_image_btn_link = $text_image_btn['url'] ?? '';
 $text_image_btn_title = $text_image_btn['title'] ?? '';
@@ -44,11 +44,11 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
                 </div>
             </div>
             <div class="col-lg-1 col-sm-2"></div>
-            <!-- Map Section -->
-            <div class="col-lg-6 col-sm-12 map" style="padding: 20px;">
-                <?php if ($text_image_map): ?>
-                    <div class="map-embed-container">
-                        <?php echo $text_image_map; ?>
+            <!-- Image Section -->
+            <div class="col-lg-6 col-sm-12 image" style="padding: 20px;">
+                <?php if ($text_image_img): ?>
+                    <div class="image-container">
+                        <img src="<?php echo esc_url($text_image_img['url']); ?>" alt="<?php echo esc_attr($text_image_img['alt']); ?>" />
                     </div>
                 <?php endif; ?>
 
