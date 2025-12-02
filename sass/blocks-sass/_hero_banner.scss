@@ -96,12 +96,16 @@
       }
     }
     @media only screen and (max-width: 768px) {
-      top: 30%;
+      top: 40%;
       left: 5%;
     }
     @media only screen and (max-width: 480px) {
       top: 30%;
-      left: 5%;
+      left: 2%;
+      max-width: 400px;
+      h2 {
+        font-size: 30px !important;
+      }
     }
   }
   .sales-banner {
