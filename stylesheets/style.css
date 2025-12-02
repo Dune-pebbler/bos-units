@@ -871,6 +871,9 @@ p {
   font-size: 3em; /* Adjust as needed */
   font-weight: bold; /* Optional */
 }
+.hero .hero__overlay-text h2 {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
 @media only screen and (max-width: 1440px) {
   .hero .hero__overlay-text {
     left: 1%;
