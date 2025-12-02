@@ -874,6 +874,10 @@ p {
 @media only screen and (max-width: 1440px) {
   .hero .hero__overlay-text {
     left: 1%;
+    max-width: 800px;
+  }
+  .hero .hero__overlay-text h2 {
+    font-size: 35px !important;
   }
 }
 @media only screen and (max-width: 1024px) {
