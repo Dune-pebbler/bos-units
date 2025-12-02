@@ -48,7 +48,7 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
             <div class="col-lg-6 col-sm-12 image" style="padding: 20px;">
                 <?php if ($text_image_img): ?>
                     <div class="image-container">
-                        <img src="<?php echo esc_url($text_image_img['url']); ?>" alt="<?php echo esc_attr($text_image_img['alt']); ?>" />
+                        <img src="<?php echo $text_image_img['url']; ?>" alt="<?php echo $text_image_img['alt']; ?>" />
                     </div>
                 <?php endif; ?>
 
