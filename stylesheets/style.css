@@ -882,6 +882,9 @@ p {
     font-size: 1.5rem;
     left: 4%;
   }
+  .hero .hero__overlay-text h2 {
+    font-size: 35px !important;
+  }
 }
 @media only screen and (max-width: 768px) {
   .hero .hero__overlay-text {
