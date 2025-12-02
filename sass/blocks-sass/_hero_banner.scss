@@ -83,6 +83,15 @@
     z-index: 15; // Increased z-index to appear above gradients
     font-size: 3em; /* Adjust as needed */
     font-weight: bold; /* Optional */
+
+    @media only screen and (max-width: 1440px) {
+      left: 1%;
+    }
+    @media only screen and (max-width: 1024px) {
+      max-width: 700px;
+      font-size: 1.5rem;
+      left: 4%;
+    }
     @media only screen and (max-width: 768px) {
       top: 30%;
       left: 5%;
@@ -96,6 +105,12 @@
     position: absolute;
     top: 75%;
     left: 13%;
+    @media only screen and (max-width: 1440px) {
+      left: 1%;
+    }
+    @media only screen and (max-width: 1024px) {
+      left: 4%;
+    }
     @media only screen and (max-width: 768px) {
       top: 65%;
       left: 5%;

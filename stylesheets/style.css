@@ -871,6 +871,18 @@ p {
   font-size: 3em; /* Adjust as needed */
   font-weight: bold; /* Optional */
 }
+@media only screen and (max-width: 1440px) {
+  .hero .hero__overlay-text {
+    left: 1%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .hero .hero__overlay-text {
+    max-width: 700px;
+    font-size: 1.5rem;
+    left: 4%;
+  }
+}
 @media only screen and (max-width: 768px) {
   .hero .hero__overlay-text {
     top: 30%;
@@ -887,6 +899,16 @@ p {
   position: absolute;
   top: 75%;
   left: 13%;
+}
+@media only screen and (max-width: 1440px) {
+  .hero .sales-banner {
+    left: 1%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .hero .sales-banner {
+    left: 4%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .hero .sales-banner {
