@@ -84,10 +84,12 @@
     font-size: 3em; /* Adjust as needed */
     font-weight: bold; /* Optional */
     @media only screen and (max-width: 768px) {
-      top: 70%;
+      top: 30%;
+      left: 5%;
     }
     @media only screen and (max-width: 480px) {
-      top: 50%;
+      top: 30%;
+      left: 5%;
     }
   }
   .sales-banner {
@@ -95,7 +97,8 @@
     top: 75%;
     left: 13%;
     @media only screen and (max-width: 768px) {
-      top: 50%;
+      top: 65%;
+      left: 5%;
     }
     @media only screen and (max-width: 480px) {
       top: 80%;

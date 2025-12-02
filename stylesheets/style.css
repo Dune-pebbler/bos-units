@@ -873,12 +873,14 @@ p {
 }
 @media only screen and (max-width: 768px) {
   .hero .hero__overlay-text {
-    top: 70%;
+    top: 30%;
+    left: 5%;
   }
 }
 @media only screen and (max-width: 480px) {
   .hero .hero__overlay-text {
-    top: 50%;
+    top: 30%;
+    left: 5%;
   }
 }
 .hero .sales-banner {
@@ -888,7 +890,8 @@ p {
 }
 @media only screen and (max-width: 768px) {
   .hero .sales-banner {
-    top: 50%;
+    top: 65%;
+    left: 5%;
   }
 }
 @media only screen and (max-width: 480px) {
