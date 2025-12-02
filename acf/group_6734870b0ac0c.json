@@ -221,6 +221,23 @@
                             "preview_size": "medium"
                         },
                         {
+                            "key": "field_6734bf418e0f4",
+                            "label": "afbeelding link",
+                            "name": "text_image_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 1
+                        },
+                        {
                             "key": "field_6762d69d746f8",
                             "label": "button",
                             "name": "text_image_btn",

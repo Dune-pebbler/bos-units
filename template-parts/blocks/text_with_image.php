@@ -6,6 +6,7 @@ $text_color = esc_attr(get_sub_field('text_color'));
 $text_image_txt = get_sub_field('text_image_txt');
 $button_group = get_sub_field('text_image_group');
 $text_image_img = get_sub_field('text_image_map'); // Image field
+$text_image_link = get_sub_field('text_image_link'); // Link field for image
 $text_image_btn = get_sub_field('text_image_btn'); // Assuming this is an array with 'url' and 'title'
 $text_image_btn_link = $text_image_btn['url'] ?? '';
 $text_image_btn_title = $text_image_btn['title'] ?? '';
@@ -13,7 +14,7 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
 
 <section id="locatie" class="text-with-image" style="background-color: <?php echo $background_color; ?>;">
     <div class="container-fluid">
-        <div class="row<?php echo $reverse_layout ? ' reverse ' : ''; ?> <?php echo $text_color; ?>">
+        <div class="row<?php echo $reverse_layout ? ' reverse ' : ''; ?> <?php echo $text_color; ?>" style="align-items: center;">
             <!-- Text Section -->
             <div class="col-lg-1 col-sm-2"></div>
             <div class="col-lg-4 col-sm-8" style="display: flex; align-items: center;">
@@ -47,7 +48,13 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
             <!-- Image Section -->
             <div class="col-lg-6 col-sm-12 text_image__container">
                 <?php if ($text_image_img): ?>
-                    <img src="<?php echo $text_image_img['url']; ?>" alt="<?php echo $text_image_img['alt']; ?>" />
+                    <?php if ($text_image_link): ?>
+                        <a href="<?php echo esc_url($text_image_link['url']); ?>" target="<?php echo $text_image_link['target'] ?? '_self'; ?>">
+                            <img src="<?php echo $text_image_img['url']; ?>" alt="<?php echo $text_image_img['alt']; ?>" />
+                        </a>
+                    <?php else: ?>
+                        <img src="<?php echo $text_image_img['url']; ?>" alt="<?php echo $text_image_img['alt']; ?>" />
+                    <?php endif; ?>
                 <?php endif; ?>
 
                 <?php if ($text_image_btn_title && $text_image_btn_link): ?>
