@@ -47,8 +47,8 @@ $text_image_btn_title = $text_image_btn['title'] ?? '';
             <!-- Image Section -->
             <div class="col-lg-6 col-sm-12 image" style="padding: 20px;">
                 <?php if ($text_image_img): ?>
-                    <div class="image-container">
-                        <img src="<?php echo $text_image_img['url']; ?>" alt="<?php echo $text_image_img['alt']; ?>" />
+                    <div class="image-container" style="width: 100%; height: 100%; overflow: hidden;">
+                        <img src="<?php echo $text_image_img['url']; ?>" alt="<?php echo $text_image_img['alt']; ?>" style="width: 100%; height: 100%; object-fit: cover; object-position: right;" />
                     </div>
                 <?php endif; ?>
 
