@@ -859,11 +859,14 @@ p {
   background: rgba(116, 102, 97, 0);
   color: #fff;
 }
+.hero .hero__banner-overlay h2 {
+  text-align: left;
+}
 .hero .hero__overlay-text {
   position: absolute;
-  top: 60%;
-  left: 5%;
-  max-width: 900px;
+  top: 40%;
+  left: 13%;
+  max-width: 1100px;
   z-index: 15;
   font-size: 3em; /* Adjust as needed */
   font-weight: bold; /* Optional */
