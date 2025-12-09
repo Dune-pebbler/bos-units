@@ -46,6 +46,10 @@
             <?php get_template_part('template-parts/blocks/downloads'); ?>
         <?php endif; ?>
 
+        <?php if (get_row_layout() === 'sales_downloads'): ?>
+            <?php get_template_part('template-parts/blocks/sales-downloads'); ?>
+        <?php endif; ?>
+
         <?php if (get_row_layout() === 'images_repeater'): ?>
             <?php get_template_part('template-parts/blocks/images-repeater'); ?>
         <?php endif; ?>
