@@ -1348,6 +1348,37 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_679585a1d7g43": {
+                    "key": "layout_679585a1d7g43",
+                    "name": "unit_explorer",
+                    "label": "Unit Explorer",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_679585b2d7g44",
+                            "label": "Unit Map SVG",
+                            "name": "unit_map_svg",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "Upload het SVG bestand met de plattegrond. Zorg dat de building groepen IDs hebben die overeenkomen met de unit bouwnummers.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": "svg",
+                            "allow_in_bindings": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -1373,5 +1404,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737815700
+    "modified": 1737816000
 }

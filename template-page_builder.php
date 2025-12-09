@@ -70,6 +70,10 @@
             <?php get_template_part('template-parts/blocks/partners-snippet'); ?>
         <?php endif; ?>
 
+        <?php if (get_row_layout() === 'unit_explorer'): ?>
+            <?php get_template_part('template-parts/blocks/unit-explorer'); ?>
+        <?php endif; ?>
+
     <?php endwhile; ?>
 <?php endif; ?>
 
