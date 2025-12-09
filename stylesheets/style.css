@@ -1204,6 +1204,11 @@ p {
   margin-bottom: 30px;
   flex: 0 0 auto;
 }
+.sales-downloads .sales-download-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .sales-downloads .sales-download-category h3 {
   font-size: 1.25rem;
   font-weight: 600;
