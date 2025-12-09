@@ -1195,15 +1195,14 @@ p {
   margin-bottom: 40px;
   color: black;
 }
-.sales-downloads .sales-downloads-content {
-  max-width: 800px;
-  margin: 0 auto;
+.sales-downloads .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -30px;
 }
-.sales-downloads .sales-download-category {
-  margin-bottom: 40px;
-}
-.sales-downloads .sales-download-category:last-child {
-  margin-bottom: 0;
+.sales-downloads .row > [class*=col-] {
+  margin-bottom: 30px;
+  flex: 0 0 auto;
 }
 .sales-downloads .sales-download-category h3 {
   font-size: 1.25rem;
@@ -1236,9 +1235,6 @@ p {
     padding: 60px 0;
   }
   .sales-downloads h2 {
-    margin-bottom: 30px;
-  }
-  .sales-downloads .sales-download-category {
     margin-bottom: 30px;
   }
   .sales-downloads .sales-download-category h3 {
