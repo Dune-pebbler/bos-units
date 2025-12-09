@@ -7,17 +7,12 @@
   }
 
   .sales-downloads-content {
-    max-width: 800px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
   }
 
   .sales-download-category {
-    margin-bottom: 40px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
     h3 {
       font-size: 1.25rem;
       font-weight: 600;
@@ -51,6 +46,13 @@
     }
   }
 
+  @media (max-width: 1024px) {
+    .sales-downloads-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 60px 0;
 
@@ -58,9 +60,12 @@
       margin-bottom: 30px;
     }
 
-    .sales-download-category {
-      margin-bottom: 30px;
+    .sales-downloads-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
 
+    .sales-download-category {
       h3 {
         font-size: 1.1rem;
       }
