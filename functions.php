@@ -15,6 +15,8 @@ add_action('admin_enqueue_scripts', 'ds_admin_theme_style');
 add_action('login_enqueue_scripts', 'ds_admin_theme_style');
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+add_action('wp_ajax_get_unit_data', 'ajax_get_unit_data');
+add_action('wp_ajax_nopriv_get_unit_data', 'ajax_get_unit_data');
 // add_action('wp_ajax_filter_projects', 'filter_projects');
 // add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 
@@ -101,6 +103,12 @@ function theme_enqueue_scripts()
   // wp_enqueue_script('js-masonry', get_template_directory_uri() . "/js/lib/masonry.js", ['jquery'], '1.0.0', true);
 
   wp_enqueue_script('js-main', get_template_directory_uri() . "/js/main.js", ['jquery'], filemtime(get_template_directory() . "/js/main.js"), true);
+  wp_enqueue_script('js-unit-explorer', get_template_directory_uri() . "/js/unit-explorer.js", ['jquery'], filemtime(get_template_directory() . "/js/unit-explorer.js"), true);
+
+  // Localize script for AJAX
+  wp_localize_script('js-unit-explorer', 'ajax_object', array(
+    'ajax_url' => admin_url('admin-ajax.php')
+  ));
 }
 
 
@@ -189,4 +197,58 @@ function my_theme_modify_nieuws_archive_query($query)
   }
 }
 add_action('pre_get_posts', 'my_theme_modify_nieuws_archive_query');
+
+/**
+ * AJAX handler to get unit data by bouwnummer
+ */
+function ajax_get_unit_data()
+{
+  $unit_number = isset($_POST['unit_number']) ? sanitize_text_field($_POST['unit_number']) : '';
+
+  if (empty($unit_number)) {
+    wp_send_json_error('No unit number provided');
+    return;
+  }
+
+  // Query for unit with matching bouwnummer
+  $args = array(
+    'post_type' => 'unit',
+    'posts_per_page' => 1,
+    'meta_query' => array(
+      array(
+        'key' => 'bouwnummer',
+        'value' => $unit_number,
+        'compare' => '='
+      )
+    )
+  );
+
+  $query = new WP_Query($args);
+
+  if ($query->have_posts()) {
+    $query->the_post();
+    $post_id = get_the_ID();
+
+    // Get ACF fields
+    $unit_data = array(
+      'id' => $post_id,
+      'bouwnummer' => get_field('bouwnummer', $post_id),
+      'oppervlakte' => get_field('oppervlakte', $post_id),
+      'prijs' => get_field('prijs', $post_id),
+      'download_brochure' => get_field('download_brochure', $post_id)['url'] ?? '',
+      'download_ingetekende_plattegrond' => get_field('download_ingetekende_plattegrond', $post_id)['url'] ?? '',
+      'download_plattegrond' => get_field('download_plattegrond', $post_id)['url'] ?? '',
+      'download_technische_omschrijving' => get_field('download_technische_omschrijving', $post_id)['url'] ?? '',
+      'download_inschrijflijst' => get_field('download_inschrijflijst', $post_id)['url'] ?? '',
+    );
+
+    wp_reset_postdata();
+
+    wp_send_json_success($unit_data);
+  } else {
+    wp_send_json_error('Unit not found');
+  }
+
+  wp_die();
+}
 ?>
