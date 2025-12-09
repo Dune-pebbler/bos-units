@@ -15,7 +15,7 @@ $categories = get_sub_field('sales_download_categories');
                     ?>
 
                     <?php if ($category_title && !empty($download_items)): ?>
-                        <div class="col-12 col-lg-4">
+                        <div class="col-6 col-lg-4">
                             <div class="sales-download-category">
                                 <h3><?php echo esc_html($category_title); ?></h3>
 
