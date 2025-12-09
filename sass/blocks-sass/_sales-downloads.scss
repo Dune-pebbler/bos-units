@@ -6,10 +6,12 @@
     color: black;
   }
 
-  .sales-downloads-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+  .row {
+    margin-bottom: -30px;
+
+    > [class*="col-"] {
+      margin-bottom: 30px;
+    }
   }
 
   .sales-download-category {
@@ -46,23 +48,11 @@
     }
   }
 
-  @media (max-width: 1024px) {
-    .sales-downloads-content {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
-  }
-
   @media (max-width: 768px) {
     padding: 60px 0;
 
     h2 {
       margin-bottom: 30px;
-    }
-
-    .sales-downloads-content {
-      grid-template-columns: 1fr;
-      gap: 30px;
     }
 
     .sales-download-category {
