@@ -1,0 +1,197 @@
+{
+    "key": "group_679580a1c5f40",
+    "title": "Unit Details",
+    "fields": [
+        {
+            "key": "field_679580b2c5f41",
+            "label": "Bouwnummer",
+            "name": "bouwnummer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_679580c3c5f42",
+            "label": "Oppervlakte",
+            "name": "oppervlakte",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "In vierkante meters (m²)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "m²"
+        },
+        {
+            "key": "field_679580d4c5f43",
+            "label": "Prijs",
+            "name": "prijs",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "€",
+            "append": ""
+        },
+        {
+            "key": "field_679580e5c5f44",
+            "label": "Download Brochure",
+            "name": "download_brochure",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_679580f6c5f45",
+            "label": "Download Ingetekende Plattegrond",
+            "name": "download_ingetekende_plattegrond",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_679581a7c5f46",
+            "label": "Download Plattegrond",
+            "name": "download_plattegrond",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_679581b8c5f47",
+            "label": "Download Technische Omschrijving",
+            "name": "download_technische_omschrijving",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_679581c9c5f48",
+            "label": "Download Inschrijflijst",
+            "name": "download_inschrijflijst",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "unit"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1737815900
+}

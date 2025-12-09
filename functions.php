@@ -10,6 +10,7 @@ define('THEME_TD', sanitize_title(get_bloginfo("title")));
 include("shortcodes/shortcodes.php");
 
 # ACTIONS
+add_action('init', 'register_units_post_type');
 add_action('admin_enqueue_scripts', 'ds_admin_theme_style');
 add_action('login_enqueue_scripts', 'ds_admin_theme_style');
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
@@ -46,6 +47,42 @@ register_nav_menus(array(
   'footer-2' => __('Footer 2 Menu', THEME_TD),
 ));
 
+# CUSTOM POST TYPES
+function register_units_post_type()
+{
+  $labels = array(
+    'name' => 'Units',
+    'singular_name' => 'Unit',
+    'menu_name' => 'Units',
+    'add_new' => 'Nieuwe Unit',
+    'add_new_item' => 'Nieuwe Unit Toevoegen',
+    'edit_item' => 'Bewerk Unit',
+    'new_item' => 'Nieuwe Unit',
+    'view_item' => 'Bekijk Unit',
+    'search_items' => 'Zoek Units',
+    'not_found' => 'Geen units gevonden',
+    'not_found_in_trash' => 'Geen units gevonden in prullenbak',
+    'all_items' => 'Alle Units',
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'has_archive' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'units'),
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-building',
+    'supports' => array('title', 'editor', 'thumbnail'),
+  );
+
+  register_post_type('unit', $args);
+}
 
 function theme_enqueue_styles()
 {
