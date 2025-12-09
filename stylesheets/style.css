@@ -1237,7 +1237,7 @@ p {
 }
 @media (max-width: 768px) {
   .sales-downloads {
-    padding: 60px 0;
+    padding: 150px 0;
   }
   .sales-downloads h2 {
     margin-bottom: 30px;
