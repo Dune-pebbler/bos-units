@@ -1225,6 +1225,129 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_679570a1c5f32": {
+                    "key": "layout_679570a1c5f32",
+                    "name": "sales_downloads",
+                    "label": "Sales Downloads",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_679570b2c5f34",
+                            "label": "Category Groups",
+                            "name": "sales_download_categories",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Nieuwe regel",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_679570c3c5f35",
+                                    "label": "Category Title",
+                                    "name": "category_title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_679570b2c5f34"
+                                },
+                                {
+                                    "key": "field_679570d4c5f36",
+                                    "label": "Download Items",
+                                    "name": "download_items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Nieuwe regel",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_679570b2c5f34",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_679570e5c5f37",
+                                            "label": "Item Title",
+                                            "name": "item_title",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_679570d4c5f36"
+                                        },
+                                        {
+                                            "key": "field_679570f6c5f38",
+                                            "label": "Item File",
+                                            "name": "item_file",
+                                            "aria-label": "",
+                                            "type": "file",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_size": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "parent_repeater": "field_679570d4c5f36"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -1250,5 +1373,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737738500
+    "modified": 1737815700
 }
