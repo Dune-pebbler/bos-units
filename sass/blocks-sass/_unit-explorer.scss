@@ -1,6 +1,6 @@
 .unit-explorer {
   padding: 80px 0;
-  background-color: #f5f5f5;
+  background-color: #2d4e4b;
 
   .unit-explorer-map {
     width: 100%;
@@ -64,7 +64,9 @@
       }
 
       // Default hover for units without status
-      g[id^="Nummer_"]:not(.status-vrij):not(.status-voorbehoud):not(.status-verkocht) {
+      g[id^="Nummer_"]:not(.status-vrij):not(.status-voorbehoud):not(
+          .status-verkocht
+        ) {
         &:hover .cls-59 {
           fill: #a68928 !important;
         }
