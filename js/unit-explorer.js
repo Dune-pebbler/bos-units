@@ -12,12 +12,20 @@ jQuery(document).ready(function ($) {
   const $modalBody = $('#unit-modal-body');
   const $modalClose = $('#unit-modal-close');
   const $modalOverlay = $('.unit-modal-overlay');
+  const $tooltip = $('#unit-tooltip');
+  const $tooltipContent = $('#unit-tooltip-content');
 
   // Find all building groups in the SVG
   const $buildings = $('.unit-explorer-map svg g[id^="Nummer_"]');
 
+  // Cache for unit data
+  let unitsData = {};
+
   // Load all unit statuses and apply colors
   loadUnitStatuses();
+
+  // Load all units info for tooltips
+  loadAllUnitsInfo();
 
   // Make buildings clickable
   $buildings.each(function () {
@@ -34,7 +42,19 @@ jQuery(document).ready(function ($) {
       loadUnitData(unitNumber);
     });
 
-    // Cursor is handled by CSS, no need for hover opacity changes here
+    // Tooltip on hover
+    $building.on('mouseenter', function () {
+      const unitNumber = buildingId.replace('Nummer_', '');
+      showTooltip(unitNumber);
+    });
+
+    $building.on('mousemove', function (e) {
+      updateTooltipPosition(e);
+    });
+
+    $building.on('mouseleave', function () {
+      hideTooltip();
+    });
   });
 
   // Load unit statuses and apply colors to SVG
@@ -198,4 +218,68 @@ jQuery(document).ready(function ($) {
       closeModal();
     }
   });
+
+  // Load all units info for tooltips
+  function loadAllUnitsInfo() {
+    $.ajax({
+      url: ajax_object.ajax_url,
+      type: 'POST',
+      data: {
+        action: 'get_all_units_info'
+      },
+      success: function (response) {
+        if (response.success) {
+          unitsData = response.data;
+        }
+      }
+    });
+  }
+
+  // Show tooltip with unit info
+  function showTooltip(unitNumber) {
+    const unit = unitsData[unitNumber];
+
+    if (!unit) {
+      return;
+    }
+
+    let html = '';
+    html += '<div class="tooltip-item"><strong>Unit ' + unit.bouwnummer + '</strong></div>';
+
+    if (unit.status) {
+      const statusLabels = {
+        'vrij': 'Beschikbaar',
+        'voorbehoud': 'In optie',
+        'verkocht': 'Verkocht'
+      };
+      html += '<div class="tooltip-item">';
+      html += '<span class="tooltip-badge status-' + unit.status + '">' + statusLabels[unit.status] + '</span>';
+      html += '</div>';
+    }
+
+    if (unit.oppervlakte) {
+      html += '<div class="tooltip-item">' + unit.oppervlakte + ' m²</div>';
+    }
+
+    if (unit.prijs) {
+      html += '<div class="tooltip-item">€ ' + formatPrice(unit.prijs) + '</div>';
+    }
+
+    $tooltipContent.html(html);
+    $tooltip.addClass('active');
+  }
+
+  // Hide tooltip
+  function hideTooltip() {
+    $tooltip.removeClass('active');
+  }
+
+  // Update tooltip position to follow cursor
+  function updateTooltipPosition(e) {
+    const offset = 15;
+    $tooltip.css({
+      left: e.pageX + offset + 'px',
+      top: e.pageY + offset + 'px'
+    });
+  }
 });

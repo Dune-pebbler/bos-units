@@ -72,6 +72,66 @@
     }
   }
 
+  // Tooltip styles
+  .unit-tooltip {
+    position: fixed;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .unit-tooltip-content {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 12px 16px;
+    min-width: 180px;
+    border: 1px solid #e0e0e0;
+
+    .tooltip-item {
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #333;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-size: 15px;
+        color: #000;
+      }
+    }
+
+    .tooltip-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+
+      &.status-vrij {
+        background-color: #4caf50;
+      }
+
+      &.status-voorbehoud {
+        background-color: #ff9800;
+      }
+
+      &.status-verkocht {
+        background-color: #f44336;
+      }
+    }
+  }
+
   // Modal styles
   .unit-modal {
     display: none;

@@ -20,6 +20,13 @@ $svg_file = get_sub_field('unit_map_svg');
                 ?>
             </div>
 
+            <!-- Hover tooltip -->
+            <div class="unit-tooltip" id="unit-tooltip">
+                <div class="unit-tooltip-content" id="unit-tooltip-content">
+                    <!-- Content loaded via JavaScript -->
+                </div>
+            </div>
+
             <!-- Modal for unit details -->
             <div class="unit-modal" id="unit-modal">
                 <div class="unit-modal-overlay"></div>

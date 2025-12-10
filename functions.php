@@ -19,6 +19,8 @@ add_action('wp_ajax_get_unit_data', 'ajax_get_unit_data');
 add_action('wp_ajax_nopriv_get_unit_data', 'ajax_get_unit_data');
 add_action('wp_ajax_get_all_unit_statuses', 'ajax_get_all_unit_statuses');
 add_action('wp_ajax_nopriv_get_all_unit_statuses', 'ajax_get_all_unit_statuses');
+add_action('wp_ajax_get_all_units_info', 'ajax_get_all_units_info');
+add_action('wp_ajax_nopriv_get_all_units_info', 'ajax_get_all_units_info');
 // add_action('wp_ajax_filter_projects', 'filter_projects');
 // add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 
@@ -287,6 +289,44 @@ function ajax_get_all_unit_statuses()
 
       if ($bouwnummer && $status) {
         $units[$bouwnummer] = $status;
+      }
+    }
+    wp_reset_postdata();
+  }
+
+  wp_send_json_success($units);
+  wp_die();
+}
+
+/**
+ * AJAX handler to get all units with basic info for tooltips
+ */
+function ajax_get_all_units_info()
+{
+  $args = array(
+    'post_type' => 'unit',
+    'posts_per_page' => -1,
+    'meta_key' => 'bouwnummer',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC'
+  );
+
+  $query = new WP_Query($args);
+  $units = array();
+
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post();
+      $post_id = get_the_ID();
+      $bouwnummer = get_field('bouwnummer', $post_id);
+
+      if ($bouwnummer) {
+        $units[$bouwnummer] = array(
+          'bouwnummer' => $bouwnummer,
+          'status' => get_field('status', $post_id),
+          'oppervlakte' => get_field('oppervlakte', $post_id),
+          'prijs' => get_field('prijs', $post_id)
+        );
       }
     }
     wp_reset_postdata();
