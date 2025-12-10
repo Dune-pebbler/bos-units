@@ -25,28 +25,28 @@
 
       // Status colors for units
       g.status-vrij {
-        path, polygon, rect, circle, ellipse {
+        .cls-59 {
           fill: #4caf50 !important;
         }
-        text {
+        .cls-4 {
           fill: #000 !important;
         }
       }
 
       g.status-voorbehoud {
-        path, polygon, rect, circle, ellipse {
+        .cls-59 {
           fill: #ff9800 !important;
         }
-        text {
+        .cls-4 {
           fill: #000 !important;
         }
       }
 
       g.status-verkocht {
-        path, polygon, rect, circle, ellipse {
+        .cls-59 {
           fill: #f44336 !important;
         }
-        text {
+        .cls-4 {
           fill: #fff !important;
         }
       }

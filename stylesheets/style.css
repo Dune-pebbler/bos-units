@@ -1270,22 +1270,22 @@ p {
 .unit-explorer .unit-explorer-map svg g[data-unit-id]:hover {
   opacity: 0.7;
 }
-.unit-explorer .unit-explorer-map svg g.status-vrij path, .unit-explorer .unit-explorer-map svg g.status-vrij polygon, .unit-explorer .unit-explorer-map svg g.status-vrij rect, .unit-explorer .unit-explorer-map svg g.status-vrij circle, .unit-explorer .unit-explorer-map svg g.status-vrij ellipse {
+.unit-explorer .unit-explorer-map svg g.status-vrij .cls-59 {
   fill: #4caf50 !important;
 }
-.unit-explorer .unit-explorer-map svg g.status-vrij text {
+.unit-explorer .unit-explorer-map svg g.status-vrij .cls-4 {
   fill: #000 !important;
 }
-.unit-explorer .unit-explorer-map svg g.status-voorbehoud path, .unit-explorer .unit-explorer-map svg g.status-voorbehoud polygon, .unit-explorer .unit-explorer-map svg g.status-voorbehoud rect, .unit-explorer .unit-explorer-map svg g.status-voorbehoud circle, .unit-explorer .unit-explorer-map svg g.status-voorbehoud ellipse {
+.unit-explorer .unit-explorer-map svg g.status-voorbehoud .cls-59 {
   fill: #ff9800 !important;
 }
-.unit-explorer .unit-explorer-map svg g.status-voorbehoud text {
+.unit-explorer .unit-explorer-map svg g.status-voorbehoud .cls-4 {
   fill: #000 !important;
 }
-.unit-explorer .unit-explorer-map svg g.status-verkocht path, .unit-explorer .unit-explorer-map svg g.status-verkocht polygon, .unit-explorer .unit-explorer-map svg g.status-verkocht rect, .unit-explorer .unit-explorer-map svg g.status-verkocht circle, .unit-explorer .unit-explorer-map svg g.status-verkocht ellipse {
+.unit-explorer .unit-explorer-map svg g.status-verkocht .cls-59 {
   fill: #f44336 !important;
 }
-.unit-explorer .unit-explorer-map svg g.status-verkocht text {
+.unit-explorer .unit-explorer-map svg g.status-verkocht .cls-4 {
   fill: #fff !important;
 }
 .unit-explorer .unit-modal {
