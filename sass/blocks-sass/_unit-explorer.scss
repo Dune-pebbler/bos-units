@@ -19,13 +19,7 @@
         cursor: pointer;
 
         .cls-59 {
-          transition: filter 0.2s ease;
-        }
-
-        &:hover {
-          .cls-59 {
-            filter: brightness(0.85);
-          }
+          transition: fill 0.2s ease;
         }
       }
 
@@ -37,6 +31,10 @@
         .cls-4 {
           fill: #000 !important;
         }
+
+        &:hover .cls-59 {
+          fill: #3d8b40 !important;
+        }
       }
 
       g.status-voorbehoud {
@@ -46,6 +44,10 @@
         .cls-4 {
           fill: #000 !important;
         }
+
+        &:hover .cls-59 {
+          fill: #cc7a00 !important;
+        }
       }
 
       g.status-verkocht {
@@ -54,6 +56,17 @@
         }
         .cls-4 {
           fill: #fff !important;
+        }
+
+        &:hover .cls-59 {
+          fill: #c62828 !important;
+        }
+      }
+
+      // Default hover for units without status
+      g[id^="Nummer_"]:not(.status-vrij):not(.status-voorbehoud):not(.status-verkocht) {
+        &:hover .cls-59 {
+          fill: #a68928 !important;
         }
       }
     }

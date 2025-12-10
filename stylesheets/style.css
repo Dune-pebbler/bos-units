@@ -1269,12 +1269,7 @@ p {
 .unit-explorer .unit-explorer-map svg g[id^=Nummer_] .cls-59,
 .unit-explorer .unit-explorer-map svg g[id*=unit] .cls-59,
 .unit-explorer .unit-explorer-map svg g[data-unit-id] .cls-59 {
-  transition: filter 0.2s ease;
-}
-.unit-explorer .unit-explorer-map svg g[id^=Nummer_]:hover .cls-59,
-.unit-explorer .unit-explorer-map svg g[id*=unit]:hover .cls-59,
-.unit-explorer .unit-explorer-map svg g[data-unit-id]:hover .cls-59 {
-  filter: brightness(0.85);
+  transition: fill 0.2s ease;
 }
 .unit-explorer .unit-explorer-map svg g.status-vrij .cls-59 {
   fill: #4caf50 !important;
@@ -1282,17 +1277,29 @@ p {
 .unit-explorer .unit-explorer-map svg g.status-vrij .cls-4 {
   fill: #000 !important;
 }
+.unit-explorer .unit-explorer-map svg g.status-vrij:hover .cls-59 {
+  fill: #3d8b40 !important;
+}
 .unit-explorer .unit-explorer-map svg g.status-voorbehoud .cls-59 {
   fill: #ff9800 !important;
 }
 .unit-explorer .unit-explorer-map svg g.status-voorbehoud .cls-4 {
   fill: #000 !important;
 }
+.unit-explorer .unit-explorer-map svg g.status-voorbehoud:hover .cls-59 {
+  fill: #cc7a00 !important;
+}
 .unit-explorer .unit-explorer-map svg g.status-verkocht .cls-59 {
   fill: #f44336 !important;
 }
 .unit-explorer .unit-explorer-map svg g.status-verkocht .cls-4 {
   fill: #fff !important;
+}
+.unit-explorer .unit-explorer-map svg g.status-verkocht:hover .cls-59 {
+  fill: #c62828 !important;
+}
+.unit-explorer .unit-explorer-map svg g[id^=Nummer_]:not(.status-vrij):not(.status-voorbehoud):not(.status-verkocht):hover .cls-59 {
+  fill: #a68928 !important;
 }
 .unit-explorer .unit-modal {
   display: none;
