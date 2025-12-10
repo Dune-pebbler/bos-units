@@ -59,27 +59,15 @@ jQuery(document).ready(function ($) {
   }
 
   function loadUnitData(unitNumber) {
-    $modalBody.html('<div class="loading">Loading...</div>');
     openModal();
 
-    $.ajax({
-      url: ajax_object.ajax_url,
-      type: 'POST',
-      data: {
-        action: 'get_unit_data',
-        unit_number: unitNumber
-      },
-      success: function (response) {
-        if (response.success) {
-          displayUnitData(response.data);
-        } else {
-          $modalBody.html('<div class="error">Unit niet gevonden</div>');
-        }
-      },
-      error: function () {
-        $modalBody.html('<div class="error">Er is een fout opgetreden</div>');
-      }
-    });
+    const unit = unitsData[unitNumber];
+
+    if (unit) {
+      displayUnitData(unit);
+    } else {
+      $modalBody.html('<div class="error">Unit niet gevonden</div>');
+    }
   }
 
   function displayUnitData(unit) {

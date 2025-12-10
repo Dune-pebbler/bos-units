@@ -17,11 +17,24 @@ if ($query->have_posts()) {
         $post_id = get_the_ID();
         $bouwnummer = get_field('bouwnummer', $post_id);
         if ($bouwnummer) {
+            // Get featured image
+            $featured_image_url = '';
+            if (has_post_thumbnail($post_id)) {
+                $featured_image_url = get_the_post_thumbnail_url($post_id, 'large');
+            }
+
             $units_data[$bouwnummer] = array(
+                'id' => $post_id,
                 'bouwnummer' => $bouwnummer,
                 'status' => get_field('status', $post_id),
                 'oppervlakte' => get_field('oppervlakte', $post_id),
-                'prijs' => get_field('prijs', $post_id)
+                'prijs' => get_field('prijs', $post_id),
+                'featured_image' => $featured_image_url,
+                'download_brochure' => get_field('download_brochure', $post_id)['url'] ?? '',
+                'download_ingetekende_plattegrond' => get_field('download_ingetekende_plattegrond', $post_id)['url'] ?? '',
+                'download_plattegrond' => get_field('download_plattegrond', $post_id)['url'] ?? '',
+                'download_technische_omschrijving' => get_field('download_technische_omschrijving', $post_id)['url'] ?? '',
+                'download_inschrijflijst' => get_field('download_inschrijflijst', $post_id)['url'] ?? '',
             );
         }
     }
