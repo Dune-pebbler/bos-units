@@ -97,6 +97,20 @@ jQuery(document).ready(function ($) {
   function displayUnitData(unit) {
     let html = '';
 
+    // Add class for layout if image exists
+    const hasImage = unit.featured_image && unit.featured_image.length > 0;
+    const contentClass = hasImage ? 'unit-modal-content-split' : '';
+
+    // Featured image (left side)
+    if (hasImage) {
+      html += '<div class="unit-modal-image">';
+      html += '<img src="' + unit.featured_image + '" alt="Unit ' + unit.bouwnummer + '">';
+      html += '</div>';
+    }
+
+    // Content wrapper (right side or full width)
+    html += '<div class="unit-modal-info ' + contentClass + '">';
+
     // Title
     html += '<h2>Unit ' + unit.bouwnummer + '</h2>';
 
@@ -151,6 +165,9 @@ jQuery(document).ready(function ($) {
       html += '</ul>';
       html += '</div>';
     }
+
+    // Close unit-modal-info wrapper
+    html += '</div>';
 
     $modalBody.html(html);
   }
