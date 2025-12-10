@@ -119,7 +119,7 @@ jQuery(document).ready(function ($) {
       html += '</div>';
     }
 
-    if (unit.prijs) {
+    if (unit.prijs && unit.status !== 'verkocht') {
       html += '<div class="unit-info-item">';
       html += '<span class="label">Prijs:</span>';
       html += '<span class="value">€ ' + formatPrice(unit.prijs) + '</span>';
@@ -128,24 +128,26 @@ jQuery(document).ready(function ($) {
 
     html += '</div>';
 
-    const downloads = [];
-    if (unit.download_brochure) downloads.push({ label: 'Brochure', url: unit.download_brochure });
-    if (unit.download_ingetekende_plattegrond) downloads.push({ label: 'Ingetekende Plattegrond', url: unit.download_ingetekende_plattegrond });
-    if (unit.download_plattegrond) downloads.push({ label: 'Plattegrond', url: unit.download_plattegrond });
-    if (unit.download_technische_omschrijving) downloads.push({ label: 'Technische Omschrijving', url: unit.download_technische_omschrijving });
-    if (unit.download_inschrijflijst) downloads.push({ label: 'Inschrijflijst', url: unit.download_inschrijflijst });
+    if (unit.status !== 'verkocht') {
+      const downloads = [];
+      if (unit.download_brochure) downloads.push({ label: 'Brochure', url: unit.download_brochure });
+      if (unit.download_ingetekende_plattegrond) downloads.push({ label: 'Ingetekende Plattegrond', url: unit.download_ingetekende_plattegrond });
+      if (unit.download_plattegrond) downloads.push({ label: 'Plattegrond', url: unit.download_plattegrond });
+      if (unit.download_technische_omschrijving) downloads.push({ label: 'Technische Omschrijving', url: unit.download_technische_omschrijving });
+      if (unit.download_inschrijflijst) downloads.push({ label: 'Inschrijflijst', url: unit.download_inschrijflijst });
 
-    if (downloads.length > 0) {
-      html += '<div class="unit-downloads">';
-      html += '<h3>Downloads</h3>';
-      html += '<ul class="download-list">';
+      if (downloads.length > 0) {
+        html += '<div class="unit-downloads">';
+        html += '<h3>Downloads</h3>';
+        html += '<ul class="download-list">';
 
-      downloads.forEach(function (download) {
-        html += '<li><a href="' + download.url + '" target="_blank">' + download.label + '</a></li>';
-      });
+        downloads.forEach(function (download) {
+          html += '<li><a href="' + download.url + '" target="_blank">' + download.label + '</a></li>';
+        });
 
-      html += '</ul>';
-      html += '</div>';
+        html += '</ul>';
+        html += '</div>';
+      }
     }
 
     html += '</div>';
@@ -217,7 +219,7 @@ jQuery(document).ready(function ($) {
       html += '<div class="tooltip-item">' + unit.oppervlakte + ' m²</div>';
     }
 
-    if (unit.prijs) {
+    if (unit.prijs && unit.status !== 'verkocht') {
       html += '<div class="tooltip-item">€ ' + formatPrice(unit.prijs) + '</div>';
     }
 
