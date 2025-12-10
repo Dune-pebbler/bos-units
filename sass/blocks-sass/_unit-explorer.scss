@@ -13,13 +13,19 @@
       display: block;
 
       // Make building groups interactive
+      g[id^="Nummer_"],
       g[id*="unit"],
       g[data-unit-id] {
         cursor: pointer;
-        transition: opacity 0.2s ease;
 
         &:hover {
-          opacity: 0.7;
+          .cls-59 {
+            opacity: 0.7;
+          }
+        }
+
+        .cls-59 {
+          transition: opacity 0.2s ease;
         }
       }
 

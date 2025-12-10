@@ -34,15 +34,7 @@ jQuery(document).ready(function ($) {
       loadUnitData(unitNumber);
     });
 
-    // Hover effect
-    $building.on('mouseenter', function () {
-      $building.css('opacity', '0.7');
-      $building.css('cursor', 'pointer');
-    });
-
-    $building.on('mouseleave', function () {
-      $building.css('opacity', '1');
-    });
+    // Cursor is handled by CSS, no need for hover opacity changes here
   });
 
   // Load unit statuses and apply colors to SVG
