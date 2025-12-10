@@ -24,6 +24,34 @@
             "append": ""
         },
         {
+            "key": "field_67958status001",
+            "label": "Status",
+            "name": "status",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Kies de status van de unit",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "vrij": "Vrij",
+                "voorbehoud": "Voorbehoud",
+                "verkocht": "Verkocht"
+            },
+            "default_value": "vrij",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_679580c3c5f42",
             "label": "Oppervlakte",
             "name": "oppervlakte",

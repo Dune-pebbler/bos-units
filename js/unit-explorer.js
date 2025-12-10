@@ -16,6 +16,9 @@ jQuery(document).ready(function ($) {
   // Find all building groups in the SVG
   const $buildings = $('.unit-explorer-map svg g[id^="Nummer_"]');
 
+  // Load all unit statuses and apply colors
+  loadUnitStatuses();
+
   // Make buildings clickable
   $buildings.each(function () {
     const $building = $(this);
@@ -41,6 +44,35 @@ jQuery(document).ready(function ($) {
       $building.css('opacity', '1');
     });
   });
+
+  // Load unit statuses and apply colors to SVG
+  function loadUnitStatuses() {
+    $.ajax({
+      url: ajax_object.ajax_url,
+      type: 'POST',
+      data: {
+        action: 'get_all_unit_statuses'
+      },
+      success: function (response) {
+        if (response.success) {
+          const statuses = response.data;
+
+          // Apply status classes to each building
+          Object.keys(statuses).forEach(function (unitNumber) {
+            const status = statuses[unitNumber];
+            const $building = $('#Nummer_' + unitNumber);
+
+            if ($building.length) {
+              // Remove any existing status classes
+              $building.removeClass('status-vrij status-voorbehoud status-verkocht');
+              // Add the current status class
+              $building.addClass('status-' + status);
+            }
+          });
+        }
+      }
+    });
+  }
 
   // Load unit data via AJAX
   function loadUnitData(unitNumber) {
@@ -78,6 +110,18 @@ jQuery(document).ready(function ($) {
 
     // Unit info
     html += '<div class="unit-info">';
+
+    if (unit.status) {
+      const statusLabels = {
+        'vrij': 'Vrij',
+        'voorbehoud': 'Voorbehoud',
+        'verkocht': 'Verkocht'
+      };
+      html += '<div class="unit-info-item">';
+      html += '<span class="label">Status:</span>';
+      html += '<span class="value status-badge status-' + unit.status + '">' + statusLabels[unit.status] + '</span>';
+      html += '</div>';
+    }
 
     if (unit.oppervlakte) {
       html += '<div class="unit-info-item">';

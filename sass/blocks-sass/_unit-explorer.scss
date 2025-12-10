@@ -22,6 +22,28 @@
           opacity: 0.7;
         }
       }
+
+      // Status colors for units
+      g.status-vrij {
+        fill: #4caf50;
+        * {
+          fill: #4caf50;
+        }
+      }
+
+      g.status-voorbehoud {
+        fill: #ff9800;
+        * {
+          fill: #ff9800;
+        }
+      }
+
+      g.status-verkocht {
+        fill: #f44336;
+        * {
+          fill: #f44336;
+        }
+      }
     }
   }
 
@@ -115,6 +137,26 @@
         .value {
           color: #000;
           font-weight: 500;
+
+          &.status-badge {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+
+            &.status-vrij {
+              background-color: #4caf50;
+            }
+
+            &.status-voorbehoud {
+              background-color: #ff9800;
+            }
+
+            &.status-verkocht {
+              background-color: #f44336;
+            }
+          }
         }
       }
     }
