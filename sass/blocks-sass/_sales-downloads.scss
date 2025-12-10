@@ -2,7 +2,7 @@
   padding: 150px 0;
 
   h2 {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: black;
   }
 
@@ -20,50 +20,142 @@
   .sales-download-category {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100%;
+    background: $white;
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: $shadow1;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        $color4 0%,
+        $color2 50%,
+        $color3 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 32px;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
     h3 {
       font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-      color: black;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: $color2;
+      font-family: $font3;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 12px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background: $color5;
+      }
     }
   }
 
   .sales-download-list {
-    list-style: disc;
-    padding-left: 20px;
+    list-style: none;
+    padding: 0;
     margin: 0;
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       line-height: 1.6;
+      position: relative;
+      padding-left: 32px;
 
       &:last-child {
         margin-bottom: 0;
       }
 
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-color: $color4;
+        border-radius: 50%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 0.3s ease;
+      }
+
+      &:hover::before {
+        background-color: $color2;
+        transform: translateY(-50%) scale(1.1);
+      }
+
       a {
-        color: #0066cc;
-        text-decoration: underline;
-        transition: color 0.2s ease;
+        color: $color1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: inline-block;
 
         &:hover {
-          color: #004499;
+          color: $color3;
+          padding-left: 4px;
         }
       }
     }
   }
 
   @media (max-width: 768px) {
-    padding: 150px 0;
+    padding: 80px 0;
 
     h2 {
       margin-bottom: 30px;
     }
 
     .sales-download-category {
+      padding: 24px 20px;
+
       h3 {
         font-size: 1.1rem;
+      }
+    }
+
+    .sales-download-list {
+      li {
+        padding-left: 28px;
+
+        &::before {
+          width: 18px;
+          height: 18px;
+          background-size: 10px;
+        }
       }
     }
   }

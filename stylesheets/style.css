@@ -1192,7 +1192,7 @@ p {
   padding: 150px 0;
 }
 .sales-downloads h2 {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   color: black;
 }
 .sales-downloads .row {
@@ -1207,43 +1207,120 @@ p {
 .sales-downloads .sales-download-category {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.sales-downloads .sales-download-category::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #786b51 0%, #2d4e4b 50%, #00425f 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.sales-downloads .sales-download-category:hover {
+  transform: translateY(-4px);
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 32px;
+}
+.sales-downloads .sales-download-category:hover::before {
+  opacity: 1;
 }
 .sales-downloads .sales-download-category h3 {
   font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: black;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2d4e4b;
+  font-family: "Space Grotesk", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 12px;
+}
+.sales-downloads .sales-download-category h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: #c7a92f;
 }
 .sales-downloads .sales-download-list {
-  list-style: disc;
-  padding-left: 20px;
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 .sales-downloads .sales-download-list li {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   line-height: 1.6;
+  position: relative;
+  padding-left: 32px;
 }
 .sales-downloads .sales-download-list li:last-child {
   margin-bottom: 0;
 }
+.sales-downloads .sales-download-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #786b51;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+.sales-downloads .sales-download-list li:hover::before {
+  background-color: #2d4e4b;
+  transform: translateY(-50%) scale(1.1);
+}
 .sales-downloads .sales-download-list li a {
-  color: #0066cc;
-  text-decoration: underline;
-  transition: color 0.2s ease;
+  color: #191919;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: inline-block;
 }
 .sales-downloads .sales-download-list li a:hover {
-  color: #004499;
+  color: #00425f;
+  padding-left: 4px;
 }
 @media (max-width: 768px) {
   .sales-downloads {
-    padding: 150px 0;
+    padding: 80px 0;
   }
   .sales-downloads h2 {
     margin-bottom: 30px;
   }
+  .sales-downloads .sales-download-category {
+    padding: 24px 20px;
+  }
   .sales-downloads .sales-download-category h3 {
     font-size: 1.1rem;
+  }
+  .sales-downloads .sales-download-list li {
+    padding-left: 28px;
+  }
+  .sales-downloads .sales-download-list li::before {
+    width: 18px;
+    height: 18px;
+    background-size: 10px;
   }
 }
 
