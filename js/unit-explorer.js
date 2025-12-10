@@ -18,14 +18,16 @@ jQuery(document).ready(function ($) {
   // Find all building groups in the SVG
   const $buildings = $('.unit-explorer-map svg g[id^="Nummer_"]');
 
-  // Cache for unit data
-  let unitsData = {};
+  // Cache for unit data - use inline data if available, otherwise empty
+  let unitsData = typeof unitExplorerData !== 'undefined' ? unitExplorerData : {};
 
-  // Load all unit statuses and apply colors
-  loadUnitStatuses();
-
-  // Load all units info for tooltips
-  loadAllUnitsInfo();
+  // Apply colors immediately if data is available
+  if (Object.keys(unitsData).length > 0) {
+    applyUnitStatuses(unitsData);
+  } else {
+    // Fallback to AJAX if inline data not available
+    loadAllUnitsInfo();
+  }
 
   // Make buildings clickable
   $buildings.each(function () {
@@ -57,31 +59,18 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  // Load unit statuses and apply colors to SVG
-  function loadUnitStatuses() {
-    $.ajax({
-      url: ajax_object.ajax_url,
-      type: 'POST',
-      data: {
-        action: 'get_all_unit_statuses'
-      },
-      success: function (response) {
-        if (response.success) {
-          const statuses = response.data;
+  // Apply status colors to SVG units
+  function applyUnitStatuses(units) {
+    Object.keys(units).forEach(function (unitNumber) {
+      const unit = units[unitNumber];
+      const status = unit.status;
+      const $building = $('#Nummer_' + unitNumber);
 
-          // Apply status classes to each building
-          Object.keys(statuses).forEach(function (unitNumber) {
-            const status = statuses[unitNumber];
-            const $building = $('#Nummer_' + unitNumber);
-
-            if ($building.length) {
-              // Remove any existing status classes
-              $building.removeClass('status-vrij status-voorbehoud status-verkocht');
-              // Add the current status class
-              $building.addClass('status-' + status);
-            }
-          });
-        }
+      if ($building.length && status) {
+        // Remove any existing status classes
+        $building.removeClass('status-vrij status-voorbehoud status-verkocht');
+        // Add the current status class
+        $building.addClass('status-' + status);
       }
     });
   }
@@ -219,7 +208,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  // Load all units info for tooltips
+  // Load all units info for tooltips (fallback via AJAX)
   function loadAllUnitsInfo() {
     $.ajax({
       url: ajax_object.ajax_url,
@@ -230,6 +219,7 @@ jQuery(document).ready(function ($) {
       success: function (response) {
         if (response.success) {
           unitsData = response.data;
+          applyUnitStatuses(unitsData);
         }
       }
     });
