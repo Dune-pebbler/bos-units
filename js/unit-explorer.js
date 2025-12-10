@@ -278,8 +278,8 @@ jQuery(document).ready(function ($) {
   function updateTooltipPosition(e) {
     const offset = 15;
     $tooltip.css({
-      left: e.pageX + offset + 'px',
-      top: e.pageY + offset + 'px'
+      left: e.clientX + offset + 'px',
+      top: e.clientY + offset + 'px'
     });
   }
 });
