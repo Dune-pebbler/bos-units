@@ -1270,23 +1270,23 @@ p {
 .unit-explorer .unit-explorer-map svg g[data-unit-id]:hover {
   opacity: 0.7;
 }
-.unit-explorer .unit-explorer-map svg g.status-vrij {
+.unit-explorer .unit-explorer-map svg g.status-vrij path, .unit-explorer .unit-explorer-map svg g.status-vrij polygon, .unit-explorer .unit-explorer-map svg g.status-vrij rect, .unit-explorer .unit-explorer-map svg g.status-vrij circle, .unit-explorer .unit-explorer-map svg g.status-vrij ellipse {
   fill: #4caf50;
 }
-.unit-explorer .unit-explorer-map svg g.status-vrij * {
-  fill: #4caf50;
+.unit-explorer .unit-explorer-map svg g.status-vrij text {
+  fill: #000;
 }
-.unit-explorer .unit-explorer-map svg g.status-voorbehoud {
+.unit-explorer .unit-explorer-map svg g.status-voorbehoud path, .unit-explorer .unit-explorer-map svg g.status-voorbehoud polygon, .unit-explorer .unit-explorer-map svg g.status-voorbehoud rect, .unit-explorer .unit-explorer-map svg g.status-voorbehoud circle, .unit-explorer .unit-explorer-map svg g.status-voorbehoud ellipse {
   fill: #ff9800;
 }
-.unit-explorer .unit-explorer-map svg g.status-voorbehoud * {
-  fill: #ff9800;
+.unit-explorer .unit-explorer-map svg g.status-voorbehoud text {
+  fill: #000;
 }
-.unit-explorer .unit-explorer-map svg g.status-verkocht {
+.unit-explorer .unit-explorer-map svg g.status-verkocht path, .unit-explorer .unit-explorer-map svg g.status-verkocht polygon, .unit-explorer .unit-explorer-map svg g.status-verkocht rect, .unit-explorer .unit-explorer-map svg g.status-verkocht circle, .unit-explorer .unit-explorer-map svg g.status-verkocht ellipse {
   fill: #f44336;
 }
-.unit-explorer .unit-explorer-map svg g.status-verkocht * {
-  fill: #f44336;
+.unit-explorer .unit-explorer-map svg g.status-verkocht text {
+  fill: #fff;
 }
 .unit-explorer .unit-modal {
   display: none;
