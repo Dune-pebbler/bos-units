@@ -1266,15 +1266,15 @@ p {
 .unit-explorer .unit-explorer-map svg g[data-unit-id] {
   cursor: pointer;
 }
-.unit-explorer .unit-explorer-map svg g[id^=Nummer_]:hover .cls-59,
-.unit-explorer .unit-explorer-map svg g[id*=unit]:hover .cls-59,
-.unit-explorer .unit-explorer-map svg g[data-unit-id]:hover .cls-59 {
-  opacity: 0.7;
-}
 .unit-explorer .unit-explorer-map svg g[id^=Nummer_] .cls-59,
 .unit-explorer .unit-explorer-map svg g[id*=unit] .cls-59,
 .unit-explorer .unit-explorer-map svg g[data-unit-id] .cls-59 {
-  transition: opacity 0.2s ease;
+  transition: filter 0.2s ease;
+}
+.unit-explorer .unit-explorer-map svg g[id^=Nummer_]:hover .cls-59,
+.unit-explorer .unit-explorer-map svg g[id*=unit]:hover .cls-59,
+.unit-explorer .unit-explorer-map svg g[data-unit-id]:hover .cls-59 {
+  filter: brightness(0.85);
 }
 .unit-explorer .unit-explorer-map svg g.status-vrij .cls-59 {
   fill: #4caf50 !important;

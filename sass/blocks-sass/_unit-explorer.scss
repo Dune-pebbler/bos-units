@@ -18,14 +18,14 @@
       g[data-unit-id] {
         cursor: pointer;
 
-        &:hover {
-          .cls-59 {
-            opacity: 0.7;
-          }
+        .cls-59 {
+          transition: filter 0.2s ease;
         }
 
-        .cls-59 {
-          transition: opacity 0.2s ease;
+        &:hover {
+          .cls-59 {
+            filter: brightness(0.85);
+          }
         }
       }
 
