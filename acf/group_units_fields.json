@@ -38,8 +38,8 @@
                 "id": ""
             },
             "choices": {
-                "vrij": "Vrij",
-                "voorbehoud": "Voorbehoud",
+                "vrij": "Beschikbaar",
+                "voorbehoud": "In optie",
                 "verkocht": "Verkocht"
             },
             "default_value": "vrij",

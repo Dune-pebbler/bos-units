@@ -105,8 +105,8 @@ jQuery(document).ready(function ($) {
 
     if (unit.status) {
       const statusLabels = {
-        'vrij': 'Vrij',
-        'voorbehoud': 'Voorbehoud',
+        'vrij': 'Beschikbaar',
+        'voorbehoud': 'In optie',
         'verkocht': 'Verkocht'
       };
       html += '<div class="unit-info-item">';
