@@ -1356,6 +1356,27 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_679585title01",
+                            "label": "Titel",
+                            "name": "unit_explorer_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optionele titel boven de plattegrond",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_679585b2d7g44",
                             "label": "Unit Map SVG",
                             "name": "unit_map_svg",

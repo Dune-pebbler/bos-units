@@ -1251,6 +1251,13 @@ p {
   padding: 80px 0;
   background-color: #2d4e4b;
 }
+.unit-explorer .unit-explorer-title {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: 600;
+}
 .unit-explorer .unit-explorer-map {
   width: 100%;
   max-width: 1200px;
@@ -1512,6 +1519,10 @@ p {
   .unit-explorer {
     padding: 60px 0;
   }
+  .unit-explorer .unit-explorer-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
   .unit-explorer .unit-modal-content {
     padding: 30px 20px 20px;
     max-width: 95%;
@@ -1520,10 +1531,7 @@ p {
     font-size: 24px;
   }
   .unit-explorer .unit-modal-image {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin: -30px -20px 20px -20px;
-    border-radius: 0;
+    display: none;
   }
   .unit-explorer .unit-modal-info.unit-modal-content-split {
     flex: 0 0 100%;

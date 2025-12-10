@@ -2,6 +2,14 @@
   padding: 80px 0;
   background-color: #2d4e4b;
 
+  .unit-explorer-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: 600;
+  }
+
   .unit-explorer-map {
     width: 100%;
     max-width: 1200px;
@@ -12,7 +20,6 @@
       height: auto;
       display: block;
 
-      // Make building groups interactive
       g[id^="Nummer_"],
       g[id*="unit"],
       g[data-unit-id] {
@@ -23,7 +30,6 @@
         }
       }
 
-      // Status colors for units
       g.status-vrij {
         .cls-59 {
           fill: #4caf50 !important;
@@ -63,7 +69,6 @@
         }
       }
 
-      // Default hover for units without status
       g[id^="Nummer_"]:not(.status-vrij):not(.status-voorbehoud):not(
           .status-verkocht
         ) {
@@ -74,7 +79,6 @@
     }
   }
 
-  // Tooltip styles
   .unit-tooltip {
     position: fixed;
     z-index: 10000;
@@ -134,7 +138,6 @@
     }
   }
 
-  // Modal styles
   .unit-modal {
     display: none;
     position: fixed;
@@ -174,13 +177,11 @@
     padding: 40px 30px 30px;
     position: relative;
 
-    // Wider modal when image is present
     &:has(.unit-modal-image) {
       max-width: 900px;
     }
   }
 
-  // Two-column layout when image exists
   .unit-modal-body {
     display: flex;
     flex-wrap: wrap;
@@ -329,6 +330,11 @@
   @media (max-width: 768px) {
     padding: 60px 0;
 
+    .unit-explorer-title {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
     .unit-modal-content {
       padding: 30px 20px 20px;
       max-width: 95%;
@@ -340,12 +346,8 @@
       }
     }
 
-    // Stack image and content on mobile
     .unit-modal-image {
-      flex: 0 0 100%;
-      max-width: 100%;
-      margin: -30px -20px 20px -20px;
-      border-radius: 0;
+      display: none;
     }
 
     .unit-modal-info.unit-modal-content-split {

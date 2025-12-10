@@ -1,9 +1,4 @@
-/**
- * Unit Explorer - Interactive SVG Map
- */
-
 jQuery(document).ready(function ($) {
-  // Only run if unit-explorer exists on the page
   if (!$('.unit-explorer').length) {
     return;
   }
@@ -15,36 +10,27 @@ jQuery(document).ready(function ($) {
   const $tooltip = $('#unit-tooltip');
   const $tooltipContent = $('#unit-tooltip-content');
 
-  // Find all building groups in the SVG
   const $buildings = $('.unit-explorer-map svg g[id^="Nummer_"]');
 
-  // Cache for unit data - use inline data if available, otherwise empty
   let unitsData = typeof unitExplorerData !== 'undefined' ? unitExplorerData : {};
 
-  // Apply colors immediately if data is available
   if (Object.keys(unitsData).length > 0) {
     applyUnitStatuses(unitsData);
   } else {
-    // Fallback to AJAX if inline data not available
     loadAllUnitsInfo();
   }
 
-  // Make buildings clickable
   $buildings.each(function () {
     const $building = $(this);
     const buildingId = $building.attr('id');
 
-    // Add interactive classes
     $building.addClass('unit-building');
 
-    // Click handler
     $building.on('click', function () {
-      // Extract building number from ID (e.g., "Nummer_10" -> "10")
       const unitNumber = buildingId.replace('Nummer_', '');
       loadUnitData(unitNumber);
     });
 
-    // Tooltip on hover
     $building.on('mouseenter', function () {
       const unitNumber = buildingId.replace('Nummer_', '');
       showTooltip(unitNumber);
@@ -59,7 +45,6 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  // Apply status colors to SVG units
   function applyUnitStatuses(units) {
     Object.keys(units).forEach(function (unitNumber) {
       const unit = units[unitNumber];
@@ -67,21 +52,16 @@ jQuery(document).ready(function ($) {
       const $building = $('#Nummer_' + unitNumber);
 
       if ($building.length && status) {
-        // Remove any existing status classes
         $building.removeClass('status-vrij status-voorbehoud status-verkocht');
-        // Add the current status class
         $building.addClass('status-' + status);
       }
     });
   }
 
-  // Load unit data via AJAX
   function loadUnitData(unitNumber) {
-    // Show loading state
     $modalBody.html('<div class="loading">Loading...</div>');
     openModal();
 
-    // AJAX request to get unit data
     $.ajax({
       url: ajax_object.ajax_url,
       type: 'POST',
@@ -102,28 +82,22 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  // Display unit data in modal
   function displayUnitData(unit) {
     let html = '';
 
-    // Add class for layout if image exists
     const hasImage = unit.featured_image && unit.featured_image.length > 0;
     const contentClass = hasImage ? 'unit-modal-content-split' : '';
 
-    // Featured image (left side)
     if (hasImage) {
       html += '<div class="unit-modal-image">';
       html += '<img src="' + unit.featured_image + '" alt="Unit ' + unit.bouwnummer + '">';
       html += '</div>';
     }
 
-    // Content wrapper (right side or full width)
     html += '<div class="unit-modal-info ' + contentClass + '">';
 
-    // Title
     html += '<h2>Unit ' + unit.bouwnummer + '</h2>';
 
-    // Unit info
     html += '<div class="unit-info">';
 
     if (unit.status) {
@@ -154,7 +128,6 @@ jQuery(document).ready(function ($) {
 
     html += '</div>';
 
-    // Downloads section
     const downloads = [];
     if (unit.download_brochure) downloads.push({ label: 'Brochure', url: unit.download_brochure });
     if (unit.download_ingetekende_plattegrond) downloads.push({ label: 'Ingetekende Plattegrond', url: unit.download_ingetekende_plattegrond });
@@ -175,18 +148,15 @@ jQuery(document).ready(function ($) {
       html += '</div>';
     }
 
-    // Close unit-modal-info wrapper
     html += '</div>';
 
     $modalBody.html(html);
   }
 
-  // Format price with thousand separators
   function formatPrice(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
-  // Modal functions
   function openModal() {
     $modal.addClass('active');
     $('body').css('overflow', 'hidden');
@@ -197,18 +167,15 @@ jQuery(document).ready(function ($) {
     $('body').css('overflow', '');
   }
 
-  // Close modal handlers
   $modalClose.on('click', closeModal);
   $modalOverlay.on('click', closeModal);
 
-  // Close on ESC key
   $(document).on('keydown', function (e) {
     if (e.key === 'Escape' && $modal.hasClass('active')) {
       closeModal();
     }
   });
 
-  // Load all units info for tooltips (fallback via AJAX)
   function loadAllUnitsInfo() {
     $.ajax({
       url: ajax_object.ajax_url,
@@ -225,7 +192,6 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  // Show tooltip with unit info
   function showTooltip(unitNumber) {
     const unit = unitsData[unitNumber];
 
@@ -259,12 +225,10 @@ jQuery(document).ready(function ($) {
     $tooltip.addClass('active');
   }
 
-  // Hide tooltip
   function hideTooltip() {
     $tooltip.removeClass('active');
   }
 
-  // Update tooltip position to follow cursor
   function updateTooltipPosition(e) {
     const offset = 15;
     $tooltip.css({

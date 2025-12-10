@@ -1,12 +1,7 @@
 <?php
-/**
- * Unit Explorer Block
- * Interactive SVG map with unit information
- */
-
 $svg_file = get_sub_field('unit_map_svg');
+$title = get_sub_field('unit_explorer_title');
 
-// Pre-load all unit data for instant display
 $units_data = array();
 $args = array(
     'post_type' => 'unit',
@@ -40,9 +35,11 @@ if ($query->have_posts()) {
     </script>
     <section class="unit-explorer">
         <div class="container">
+            <?php if ($title): ?>
+                <h2 class="unit-explorer-title"><?php echo esc_html($title); ?></h2>
+            <?php endif; ?>
             <div class="unit-explorer-map">
                 <?php
-                // Get the SVG file content
                 $svg_path = get_attached_file($svg_file['ID']);
                 if (file_exists($svg_path)) {
                     echo file_get_contents($svg_path);
@@ -50,21 +47,15 @@ if ($query->have_posts()) {
                 ?>
             </div>
 
-            <!-- Hover tooltip -->
             <div class="unit-tooltip" id="unit-tooltip">
-                <div class="unit-tooltip-content" id="unit-tooltip-content">
-                    <!-- Content loaded via JavaScript -->
-                </div>
+                <div class="unit-tooltip-content" id="unit-tooltip-content"></div>
             </div>
 
-            <!-- Modal for unit details -->
             <div class="unit-modal" id="unit-modal">
                 <div class="unit-modal-overlay"></div>
                 <div class="unit-modal-content">
                     <button class="unit-modal-close" id="unit-modal-close">&times;</button>
-                    <div class="unit-modal-body" id="unit-modal-body">
-                        <!-- Content loaded via JavaScript -->
-                    </div>
+                    <div class="unit-modal-body" id="unit-modal-body"></div>
                 </div>
             </div>
         </div>
